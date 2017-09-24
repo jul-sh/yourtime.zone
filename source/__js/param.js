@@ -42,7 +42,7 @@
                 return s;
             };
 
-        return buildParams('', a).join('&').replace(/%20/g, '+');
+        return buildParams('', a).join('&').replace(/%20/g, '%20');
     };
 
     if (typeof module === 'object' && typeof module.exports === 'object') {
