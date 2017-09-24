@@ -26,12 +26,12 @@ function embedINSERTEVENTID(displaytitle, displaydate, EventSerialized) {
 
   if (displaydate) {
     HumanLanguageConvertedEventTime = moment(ConvertedEventTime).calendar(null, {
-      sameDay: "[Today at] h:mm A",
-      nextDay: "[Tomorrow at] h:mm A",
+      sameDay: "[today at] h:mm A",
+      nextDay: "[tomorrow at] h:mm A",
       nextWeek: "dddd [at] h:mm A",
       withinthenext200Days: "MMMM Do [at] h:mm A",
-      lastDay: "[Yesterday at] h:mm A",
-      lastWeek: "[Last] dddd [at] h:mm A",
+      lastDay: "[yesterday at] h:mm A",
+      lastWeek: "[last] dddd [at] h:mm A",
       withinthelast200Days: "MMMM Do [at] h:mm A",
       sameElse: "MMMM Do YYYY [at] h:mm A"
     });
