@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Create new event</title>
+  <script>
+    function myInit() {
+      InitializeEventBuilder();
+      //set bc according to time of local day
+      var hours = moment().format('H');
+      setbackgroundcoloraccordingtotime(hours);
+    }
+  </script>
+  <script src="../__js/new.js"></script>
+  <script async src="../__js/all.min.js" onload="myInit()"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f5ce7e">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <link rel="stylesheet" type="text/css" href="../__css/main.css" />
+  <div id="page">
+    <form name="EventBuilder" onsubmit="CreateEvent(); return false;">
+      <h2>When is the event?</h2>
+      <p>In your local time zone (<span id="localtimezone"></span>). <span class="chanegtimezone">(<a href="javascript:;" onclick="ml_webform_547231('show')">change</a>)</span></p>
+      <input type="text" id="EventDateTime" data-format="YYYY-MM-DD[T]HH:mm:[00]ZZ" data-template="MMM D YYYY     hh : mm a" name="datetime" value="21-12-2017 8:00 pm">
+      <br><br><br>
+      <h2>What's the name of the event?</h2>
+      <input type="text" placeholder="Juliette's Webinar" id="EventTitle" name="nameofevent"><br><br><br><br>
+      <input type="submit" class="btn-class" value="Create Event">
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"function"
+			],
+			[
+				"drop",
+				"Dropdown"
+			],
+			[
+				"conver",
+				"conversational"
+			],
+			[
+				"over",
+				"overflow-y"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/__js/all.min.js",
+			"settings":
+			{
+				"buffer_size": 6785,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html>\n<head>\n<title>yourtime.zone</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n<script>\nfunction myInit() {\n    ParseEvent();\n}\n</script>\n<script async src=\"../__js/all.min.js\" onload=\"myInit()\"></script>\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"> <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"> <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"> <link rel=\"manifest\" href=\"/manifest.json\"> <link rel=\"mask-icon\" href=\"/safari-pinned-tab.svg\" color=\"#f5ce7e\"> <meta name=\"theme-color\" content=\"#ffffff\">\n</head>\n\n<body>\n<script type=\"text/javascript\">\n// create closure for this widget/gadget\n(function() {\n\n    // inside this closure we can create vars and functions\n    // that are private and don't polute the global namespace\n\n    // capture the existing jQuery version, if there is one\n    var oldJQ = window.jQuery;\n\n    // embed packed jquery library needed for this widget\n\n    // jQuery 1.2.3 - Copyright (c) 2008 John Resig (jquery.com)\n    eval(function(p,a,c,k,e,r){e= //... and so on... make sure you end this line with a semicolon;\n\n    // create another closure to which we pass \"our\" version of jQuery\n    (function($) {\n\n        //////////////////////////////////////////////////////\n        // BEGIN - widget specific code\n\n            $(document).ready(function() {\n            \n                $('#widgVer').html('The widget uses jQuery ver: ' + $.fn.jquery).click(function() {\n                    alert($.fn.jquery);\n                });\n            \n                setInterval(updateTime, 1000);\n                updateTime();\n            });\n\n            function updateTime() {\n                $('#widget').html(new Date().toLocaleString());\n            };\n\n        // END - widget specific code\n        //////////////////////////////////////////////////////\n\n        // respect the environment; give back the $ and reset the\n        // global jQuery object\n        jQuery.noConflict();\n        if (oldJQ) window.jQuery = oldJQ;\n\n    })(jQuery); // <-- pass in the jQuery that we embedded above\n\n})();\n</script>\n<div id=\"timezoneembed\"></div>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../__css/main.css\" />\n<div id=\"page\">\n<span>In your timezone (<span id=\"localtimezone\">YYY</span>), <span id='eventnameouter'>\"<span id=\"eventname\">eventname</span>\"</span> <span id=\"eventverb\">is taking</span> place<span id=\"eventpreposition\"></span></span>\n<br>\n<h1 id=\"localtime\">caclulating...</h1>\n</div>\n<div id=\"createyourown\"><a href=\"../\" class=\"createyourownbutton btn-class\">About yourtime.zone</a></div>\n</body>\n</html>",
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/embed/index.html",
+			"file_size": 1148,
+			"file_write_time": 131493969423854398,
+			"settings":
+			{
+				"buffer_size": 2694,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/index.html",
+			"settings":
+			{
+				"buffer_size": 1387,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/404.html",
+			"settings":
+			{
+				"buffer_size": 1008,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2416,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/share/index.html",
+			"settings":
+			{
+				"buffer_size": 3158,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/__js/cookie.js",
+			"settings":
+			{
+				"buffer_size": 3677,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/p/index.html",
+			"settings":
+			{
+				"buffer_size": 1148,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/iphone/index.html",
+			"settings":
+			{
+				"buffer_size": 2888,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/__css/main.less",
+			"settings":
+			{
+				"buffer_size": 5125,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/laurapretot/Local Dev/TimeZone/source/new/index.html",
+			"settings":
+			{
+				"buffer_size": 1608,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/laurapretot/Local Dev/TimeZone/source",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__css",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js",
+		"/Users/laurapretot/Local Dev/TimeZone/source/new",
+		"/Users/laurapretot/Local Dev/TimeZone/source/p",
+		"/Users/laurapretot/Local Dev/TimeZone/source/share",
+		"/Users/laurapretot/Local Dev/TimeZone/source/timezonepicker"
+	],
+	"file_history":
+	[
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js/setbackground.js",
+		"/Users/laurapretot/Local Dev/TimeZone/source/iphone/index.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/index.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/new/index.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/timezonepicker/index.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/p/index.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/share/index.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/404.html",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js/askforembedemail.js",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js/all.min.js",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js/combodate.js",
+		"/Users/laurapretot/Local Dev/TimeZone/source/config.codekit3",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js/cookie.js",
+		"/Users/laurapretot/Local Dev/TimeZone/source/__js/jquery.min.js",
+		"/Users/laurapretot/Local Dev/Time Zone/source/new/index.html",
+		"/Users/laurapretot/Local Dev/Time Zone/source/iphone/index.html",
+		"/Users/laurapretot/Local Dev/Time Zone/source/index.html",
+		"/Users/laurapretot/Local Dev/Time Zone/build/__js/juliette-timezone.js",
+		"/Users/laurapretot/Local Dev/Time Zone/yourtimezone.sublime-project",
+		"/Users/laurapretot/Local Dev/Time Zone/source/share/index.html",
+		"/Users/laurapretot/Local Dev/Time Zone/source/404.html",
+		"/Users/laurapretot/Local Dev/Time Zone/source/timezonepicker/index.html",
+		"/Users/laurapretot/Local Dev/Time Zone/source/p/index.html",
+		"/Users/laurapretot/Dropbox/Downloads/producthunt.html",
+		"/Users/laurapretot/Local Dev/Time Zone/__css/main.css",
+		"/Users/laurapretot/Local Dev/Time Zone/__css/bootstrapfortimepicker.css",
+		"/Users/laurapretot/Dropbox/Downloads/bootstrapfortimepicker.css",
+		"/Users/laurapretot/FL-Local/template/assets/_js/subscribelock.js",
+		"/Users/laurapretot/Dropbox/Downloads/index.html",
+		"/Users/laurapretot/Downloads/alfred",
+		"/Users/laurapretot/FL-Local/FLsquarespace/assets/conversationalform copy/amelie.html",
+		"/Users/laura/FL-Local/FLsquarespace/assets/_js/subscribelock.js",
+		"/Volumes/ExpanDrive 5.4.6 by Appked/SP/Read Me.txt",
+		"/Users/laura/OneDrive/_downloadfolders/Laura Pretot.htm",
+		"/Volumes/Things 3/ked.txt",
+		"/Users/laura/FL-Local/FL SquareSpace Test/template/site.region",
+		"/Users/laura/FL-Local/FLsquarespace/styles/reset.css",
+		"/Users/laura/Library/Application Support/Firefox/Profiles/0k4kdpvn.default/ScrapBook/data/20170122192952/default_050.html",
+		"/Users/laura/Library/Application Support/Firefox/Profiles/0k4kdpvn.default/ScrapBook/data/20170122192952/750grammes_007.html",
+		"/Users/laura/OneDrive/_downloadfolders/archive-2/css/oxygen.css",
+		"/Users/laura/OneDrive/_downloadfolders/minion pro extendedn/myfontsfree.txt",
+		"/Users/laura/OneDrive/_downloadfolders/archive-1/css/oxygen.css",
+		"/untitled",
+		"/Users/laura/OneDrive/_downloadfolders/Auto-tag-friends(TutorialsHunt.com)/Auto-tag-friends(TutorialsHunt.com).txt",
+		"/Users/laura/OneDrive/_downloadfolders/The.Elder.Scrolls.V.Skyrim.Special.Edition-CODEX/codex.nfo",
+		"/Users/laura/OneDrive/_downloadfolders/README.md",
+		"/Volumes/Neat Video 3.2 Pro FC by r2 MrStock/readme first.txt",
+		"/Users/laura/OneDrive/_downloadfolders/Neat.Video.PR.Setup.64.TEAM.VR/README.txt",
+		"/Users/laura/OneDrive/_downloadfolders/Arrival.2016.DVDScr.XVID.AC3.HQ.Hive-CM8/Arrival.2016.DVDScr.XVID.AC3.HQ.Hive-CM8.nfo",
+		"/private/tmp/airportSniffF3IrYP.cap",
+		"/Users/laura/OneDrive/_downloadfolders/FxFactory Pro v6.0.2.5193 + Keygen [Mac OSX]/FxFactory Pro v6.0.2.5193 + Keygen [Mac OSX]/Read Me.txt",
+		"/Users/laura/OneDrive/_downloadfolders/swedish words1.txt",
+		"/Users/laura/OneDrive/_downloadfolders/WISO.Steuer.Mac.2016/install.txt",
+		"/Users/laura/French Lover/FLSquarespace/assets/conversationalform/index.html",
+		"/Users/laura/French Lover/FLSquarespace/assets/conversationalform/amelie.html",
+		"/Users/laura/French Lover/frenchlover.github.io/conversationalform/index.html",
+		"/Users/laura/OneDrive/_downloadfolders/WISO.Steuer-Sparbuch.2016/Anleitung-Инструкция.txt",
+		"/Users/laura/OneDrive/_downloadfolders/WISO Steuer Sparbuch 2017/ReadMe.txt",
+		"/Users/laura/OneDrive/_downloadfolders/PLURALEYES 4.1 macOS/Read Me FIRST.txt",
+		"/Users/laura/Library/Application Support/Alfred 3/Alfred.alfredpreferences/workflows/user.workflow.13C71B15-7298-4F59-B3DA-DC2D69817B86/scripts/process_list.sh",
+		"/Users/laura/French Lover/FLSquarespace/assets/_js/subscribelock.js",
+		"/Users/laura/French Lover/FLSquarespace/assets/_ajax/subscribelock.html",
+		"/Users/laura/OneDrive/_downloadfolders/svg.svg",
+		"/Users/laura/OneDrive/_downloadfolders/lockresources.txt",
+		"/Users/laura/OneDrive/_downloadfolders/formnewsletter.html",
+		"/Users/laura/OneDrive/_downloadfolders/Christmas Greetings PSD - cssauthor.com/License.txt",
+		"/Users/laura/OneDrive/_downloadfolders/frontlightmaster/bin/config.sh",
+		"/Users/laura/OneDrive/_downloadfolders/FrontLight/readme.txt",
+		"/Users/laura/SBO/wget -p -e robots=off -U mozilla -x --load-cookies",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalform/index.html",
+		"/Users/laura/FrenchLoverWeb/template/assets/conversationalform/index.html",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalform/$(\"#mauticform_input_placementtestresults_placemen",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalform/calcamelie.js",
+		"/Users/laura/FrenchLoverWeb/template/scripts/site-bundle.js",
+		"/Users/laura/FrenchLoverWeb/template/collections/index.list",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalformsource/build/conversational-form.js",
+		"/Users/laura/OneDrive/_downloadfolders/buttons.html",
+		"/Users/laura/FrenchLoverWeb/template/collections/blog.item",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalformsource/src/styles/cf/ui/control-elements/cf-control-elements.styl",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalform/conversational-form.min.css",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalform/howtoeditthefinaljs.txt",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/conversationalform/conversational-form.min.js",
+		"/Users/laura/OneDrive/French Lover/conversational form/src/scripts/cf/ui/BasicElement.ts",
+		"/Users/laura/OneDrive/French Lover/conversational form/src/scripts/cf/ui/UserInput.ts",
+		"/Users/laura/OneDrive/French Lover/conversational form/src/scripts/cf/ConversationalForm.ts",
+		"/Users/laura/OneDrive/French Lover/conversational form/src/scripts/cf/ui/control-elements/OptionButton.ts",
+		"/Users/laura/OneDrive/French Lover/conversational form/src/scripts/cf/ui/control-elements/OptionsList.ts",
+		"/Users/laura/OneDrive/French Lover/frenchlover.github.io/index.html",
+		"/Users/laura/GitHub/laurajuliette.github.io/index.html",
+		"/Users/laura/OneDrive/French Lover/conversational form/src/scripts/cf/ui/control-elements/ControlElements.ts",
+		"/Users/laura/GitHub/laurajuliette.github.io/placementtest.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"!important;",
+			";",
+			"</body>",
+			"\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../__css/main.css\" />",
+			"error",
+			"UserT",
+			"</script>",
+			"<script>",
+			"ll.min.js\"",
+			"<body>",
+			"\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../__css/main.css\" />",
+			"<script async",
+			"<script ",
+			"class",
+			"map",
+			"<script src=\"../__js/googleanalytics.js\"></script>",
+			"juliette-timezone.js",
+			"<meta name=\"theme-color\" content=\"#ffffff\">",
+			"\n<script src=\"../__js/juliette-timezone.js\"></script>",
+			"<script src=\"__js/juliette-timezone.js\"></script>",
+			"<script src=\"../__js/moment.js\"></script>\n<script src=\"../__js/moment-timezone-with-data.js\"></script>\n<script src=\"../__js/jquery.min.js\"></script>\n<script src=\"../__js/jquery-deparam.js\"></script>\n<script src=\"../__js/setbackground.js\"></script>",
+			"</head>",
+			"<html>",
+			"F3A350",
+			"10459f",
+			"effra",
+			"#00163d",
+			"ction-wrapper .content.has-main-media h1:not(.OT_title)",
+			"hours",
+			"pricing-table",
+			"pricing",
+			"color",
+			"#",
+			"#1",
+			"#17",
+			"academy",
+			"\\e064",
+			"a ",
+			"{contactfield=firstname}",
+			"Toby Miles",
+			"polthier",
+			"tagline",
+			"taglin",
+			"p a",
+			"effra",
+			"mautic",
+			"[First Name]",
+			"font-size: 14px;",
+			"font-family: Helvetica, Arial, sans-serif;",
+			"font-family:Arial, sans-serif;font-size:14px;",
+			"chettawut",
+			"#page {",
+			"#page",
+			"\n",
+			"$white",
+			".ontop",
+			"Alfred 2",
+			":hover",
+			"conversationalform/",
+			"/favicon/",
+			"http:",
+			"font-size: 24px!im",
+			".newsletterboxh2",
+			"newsletter",
+			"related .entry-title ",
+			"nt-size: 24px!impor",
+			"dding-bottom: 20px",
+			"\"",
+			"#social",
+			"112",
+			"tabindex",
+			"cf-chat-response",
+			"cf-input-c",
+			"about"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\";",
+			"!important;",
+			"<noscript id=\"deferred-styles\"><link href=\"../__css/main.css\" rel=\"stylesheet\" type=\"text/css\"></noscript>\n\t<script>\n\t     var loadDeferredStyles = function() {\n\t       var addStylesNode = document.getElementById(\"deferred-styles\");\n\t       var replacement = document.createElement(\"div\");\n\t       replacement.innerHTML = addStylesNode.textContent;\n\t       document.body.appendChild(replacement)\n\t       addStylesNode.parentElement.removeChild(addStylesNode);\n\t     };\n\t     var raf = requestAnimationFrame || mozRequestAnimationFrame ||\n\t         webkitRequestAnimationFrame || msRequestAnimationFrame;\n\t     if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });\n\t     else window.addEventListener('load', loadDeferredStyles);\n\t</script>\n</body>",
+			"",
+			"}\n</script>",
+			"<script>\nfunction myInit() {",
+			"ll.min.js\" onload=\"myInit()\"",
+			"<body>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../__css/main.css\" />",
+			"",
+			"<script async ",
+			"<script async",
+			"all.min.js",
+			"<meta name=\"theme-color\" content=\"#ffffff\">\n<script src=\"../__js/juliette-timezone.js\"></script>",
+			"",
+			"\n</head>",
+			"<script src=\"../__js/googleanalytics.js\"></script>\n</head>",
+			"<html>\n<head>",
+			"f5cd7b",
+			"4620eb",
+			"eventtimeofday",
+			"\\25BD",
+			"{{ subscriber.first_name }}",
+			"Mona Fuchs",
+			"pretot",
+			"{contactfield=firstname}",
+			"",
+			"#00163d",
+			"Alfred 3",
+			"",
+			"/conversationalform/favicon/",
+			"https:",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"folders":
+	[
+		{
+			"path": "/Users/laurapretot/Local Dev/TimeZone/source"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/__js/all.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6785,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4892,
+								4892
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 9.0,
+						"translation.y": 589.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/embed/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1177,
+								1177
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 91.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								89,
+								89
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/404.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								213,
+								213
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								807,
+								807
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 109.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/share/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								581,
+								581
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/__js/cookie.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/p/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/iphone/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/__css/main.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								999,
+								999
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/laurapretot/Local Dev/TimeZone/source/new/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								452,
+								452
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 318.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
