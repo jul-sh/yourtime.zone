@@ -6,11 +6,8 @@
 # testing
 /coverage
 
-#scss gets converted to css so ignore css
-src/**/*.css
-
 # production
-/build
+# /build
 
 # misc
 .DS_Store
