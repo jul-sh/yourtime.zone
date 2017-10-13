@@ -203,7 +203,7 @@ form input[type="text"] {
 }
 
 #bottomarea {
-  position: fixed;
+  position: absolute;
   bottom: 30px;
   width: 250px;
   margin-left: -125px;
@@ -295,6 +295,13 @@ form input[type="text"] {
   border-style: dotted;
 }
 
+.mobilebr {
+  content: " ";
+}
+.mobilebr:after {
+  content: " ";
+}
+
 @media screen and (max-height: 400px) {
   #bottomarea {
     display: none;
@@ -330,6 +337,13 @@ form input[type="text"] {
     border: 2px;
     border-color: #ffffff;
     border-style: dotted;
+  }
+
+  .mobilebr {
+    content: normal;
+  }
+  .mobilebr:after {
+    content: normal;
   }
 }
 
@@ -396,5 +410,18 @@ form input[type="text"] {
 
   select {
     padding: 3px !important;
+  }
+
+  .shareurl {
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+  }
+
+  .optionalbr {
+    content: " ";
+  }
+  .optionalbr:after {
+    content: " ";
   }
 }

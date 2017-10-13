@@ -66,16 +66,16 @@ class ShareEvent extends React.Component {
       <div>
         <h1 style={{ marginTop: "0" }}>{this.state.name}</h1>
         <p>
-          Now, simply share the link below.<br />It will display{" "}
-          <Link to={generatePath()}>the event</Link> in the local time of
-          whoever visits it.
+          Now, simply share the link below.<br className="optionalbr" />It will
+          display <Link to={generatePath()}>the event</Link> in the local time
+          of whoever visits it.
         </p>
         <form>
           <div className="input-group">
             <input
               onClick={this.handleChange}
               type="text"
-              className="form-control"
+              className="form-control shareurl"
               defaultValue={generateURL()}
               readOnly
               id="copy-input"

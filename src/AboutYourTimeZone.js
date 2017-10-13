@@ -9,7 +9,8 @@ class AboutYourTimeZone extends React.Component {
     return (
       <span className="introdescription">
         <h1 className="greeting">
-          Time zones are hard.<br />I'll take care of them for you.
+          Time zones are hard.<br className="optionalbr" />I'll take care of
+          them for you.
         </h1>
         <div className="bodytext">
           <span>
