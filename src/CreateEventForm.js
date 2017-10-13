@@ -84,26 +84,25 @@ class CreateEventForm extends React.Component {
             }}
           />
           <Timepicker style={timepickerstyles} />
-          <br />
-          <br />
-          <h2>What's the name of the event?</h2>
-          <input
-            type="text"
-            value={this.state.value}
-            type="text"
-            placeholder="Juliette's Webinar"
-            id="Eventname"
-            name="nameofevent"
-          />
-          <br />
-          <br />
-          <br />
+          <div style={{ marginTop: 45 }}>
+            <h2>What's the name of the event?</h2>
+            <input
+              type="text"
+              value={this.state.value}
+              type="text"
+              placeholder="Juliette's Webinar"
+              id="Eventname"
+              name="nameofevent"
+            />
+          </div>
         </label>
-        <input
-          type="submit"
-          className="btn-class"
-          defaultValue="Create Event"
-        />
+        <div className="submitbuttondiv" style={{ marginTop: 15 }}>
+          <input
+            type="submit"
+            className="btn-class bigbutton"
+            defaultValue="Create Event"
+          />
+        </div>
       </form>
     );
   }

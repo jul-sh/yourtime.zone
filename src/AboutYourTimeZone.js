@@ -28,8 +28,7 @@ class AboutYourTimeZone extends React.Component {
             </li>
           </ul>
         </div>
-        <br />
-        <Link to="/new" style={{ marginTop: 7 }} className="btn-class">
+        <Link to="/new" className="btn-class bigbutton">
           Create an event
         </Link>
       </span>

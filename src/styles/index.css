@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "FPL Neu";
+  src: local("Palatino Linotype Bold"), local("Palatino Bold"),
+    url("subset-FPLNeu-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "customsans";
+  src: url("customsans.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
 body,
 html,
 #root,
@@ -24,7 +39,6 @@ body {
 
 #background {
   z-index: 0;
-  position: fixed;
   left: 0;
   top: 0;
   opacity: 1;
@@ -223,6 +237,10 @@ form input[type="text"] {
   -moz-appearance: none;
 }
 
+.btn-class.bigbutton {
+  margin-top: 30px;
+}
+
 .btn-class:active,
 .btn-class:hover {
   border: none;
@@ -315,17 +333,68 @@ form input[type="text"] {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   form input[type="text"] {
     min-width: 140px;
   }
 
   #page {
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-left: 35px;
+    padding-right: 35px;
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 36px;
+    line-height: 1.3em;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .introbulletpoints {
+    display: none;
+  }
+
+  .timeselector {
+    margin: 0 !important;
+    display: block !important;
+    margin-top: 20px !important;
+  }
+
+  select {
+    padding: 5px !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  h1 {
+    font-size: 30px;
+    line-height: 1.3em;
+  }
+  #page {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.4em;
+  }
+
+  .btn-class {
+    padding: 12px 35px;
+  }
+
+  .bottomareabutton {
+    padding: 8px 20px;
+  }
+
+  .submitbuttondiv {
+    margin-top: 5px !important;
+  }
+
+  select {
+    padding: 3px !important;
   }
 }
