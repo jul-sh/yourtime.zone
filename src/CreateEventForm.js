@@ -72,7 +72,6 @@ class CreateEventForm extends React.Component {
     }
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
           <h2>When is the event?</h2>
           <p>In your local time zone ({UserTimeZone}). </p>
           <ComboDatePicker
@@ -95,7 +94,6 @@ class CreateEventForm extends React.Component {
               name="nameofevent"
             />
           </div>
-        </label>
         <div className="submitbuttondiv" style={{ marginTop: 15 }}>
           <input
             type="submit"

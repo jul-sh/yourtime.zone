@@ -82,7 +82,7 @@ class ParseEventBase extends React.Component {
     SetBackgroundcolorAccordingToTime(hours);
     return (
       <span>
-        In your timezone ({UserTimeZone}),<br className="mobilebr" />
+        In your timezone ({UserTimeZone}),<br className="brmax800px" />
         {EventName} {Verb}
         {OptionalPreposition}
         <br />

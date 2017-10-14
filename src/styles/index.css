@@ -295,10 +295,10 @@ form input[type="text"] {
   border-style: dotted;
 }
 
-.mobilebr {
+.brmax800px {
   content: " ";
 }
-.mobilebr:after {
+.brmax800px:after {
   content: " ";
 }
 
@@ -339,10 +339,10 @@ form input[type="text"] {
     border-style: dotted;
   }
 
-  .mobilebr {
+  .brmax800px {
     content: normal;
   }
-  .mobilebr:after {
+  .brmax800px:after {
     content: normal;
   }
 }
