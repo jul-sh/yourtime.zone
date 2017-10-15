@@ -25,7 +25,7 @@ class AboutYourTimeZone extends React.Component {
             <li>Works with daylight saving time</li>
             <li>Free to use</li>
             <li>
-              <Link to="/p/8z140/Google%20Pixel%20Event">Live example</Link>
+              <Link to="/54g0/Google%20Pixel%20Event">Live example</Link>
             </li>
           </ul>
         </div>
