@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as Cookies from "js-cookie";
 import SkyLight from "react-skylight";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class EmbedEventButton extends React.Component {
   render() {
@@ -55,7 +56,12 @@ class EmbedEventButton extends React.Component {
       );
     }
 
-    return <a className="bottomareabutton btn-class">About yourtime.zone</a>;
+    return (
+      /*  Somehow making this <Link></Link> breaks React? To be investigated  */
+      <a href="/" className="bottomareabutton btn-class">
+        About yourtime.zone
+      </a>
+    );
   }
 }
 

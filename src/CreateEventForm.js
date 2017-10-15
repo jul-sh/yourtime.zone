@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import moment from "moment-timezone";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import NameUserTimezone from "./helperfunctions/NameUserTimezone";
 import ComboDatePicker from "./helperfunctions/combodate";
 import Timepicker from "./helperfunctions/timepicker";
+import { EncodeEvent } from "./helperfunctions/EncodeEvent";
 import * as Cookies from "js-cookie";
 import {
   BrowserRouter as Router,
@@ -46,20 +46,14 @@ class CreateEventForm extends React.Component {
     EventTime.setSeconds(0);
     EventTime.setMinutes(minutepicked);
     EventTime.setHours(hourpicked);
-    console.log(EventTime);
     var EventName = document.getElementById("Eventname").value;
-    console.log(EventName);
     //convert to unix seconds time
-    var EventUnixTime = moment(EventTime).unix();
-    //strip the last two zeroes to make it unix minutes
-    var EventUnixMinutes = Math.floor(EventUnixTime / 1e2);
-    //convert to base36 for shortening
-    var EventUnixMinutesB36 = EventUnixMinutes.toString(36);
-    var EventID = EventUnixMinutesB36 + EventName;
+    var EncodedEventTime = EncodeEvent(EventTime);
+    var EventID = EncodedEventTime + EventName;
     Cookies.set("creatorofevent", EventID, { expires: 99 });
     this.setState({ redirectToReferrer: true });
     this.setState({
-      redirectURL: "/share/" + EventUnixMinutesB36 + "/" + EventName
+      redirectURL: "/share/" + EncodedEventTime + "/" + EventName
     });
     event.preventDefault();
   }
@@ -72,28 +66,28 @@ class CreateEventForm extends React.Component {
     }
     return (
       <form onSubmit={this.handleSubmit}>
-          <h2>When is the event?</h2>
-          <p>In your local time zone ({UserTimeZone}). </p>
-          <ComboDatePicker
-            minDate="2016-01-01"
-            maxDate="2030-12-31"
-            date={new Date()}
-            onChange={function(picker, date) {
-              window.combodatecurrentstate = date;
-            }}
+        <h2>When is the event?</h2>
+        <p>In your local time zone ({UserTimeZone}). </p>
+        <ComboDatePicker
+          minDate="2017-06-01"
+          maxDate="2030-12-31"
+          date={new Date()}
+          onChange={function(picker, date) {
+            window.combodatecurrentstate = date;
+          }}
+        />
+        <Timepicker style={timepickerstyles} />
+        <div style={{ marginTop: 45 }}>
+          <h2>What's the name of the event?</h2>
+          <input
+            type="text"
+            value={this.state.value}
+            type="text"
+            placeholder="Juliette's Webinar"
+            id="Eventname"
+            name="nameofevent"
           />
-          <Timepicker style={timepickerstyles} />
-          <div style={{ marginTop: 45 }}>
-            <h2>What's the name of the event?</h2>
-            <input
-              type="text"
-              value={this.state.value}
-              type="text"
-              placeholder="Juliette's Webinar"
-              id="Eventname"
-              name="nameofevent"
-            />
-          </div>
+        </div>
         <div className="submitbuttondiv" style={{ marginTop: 15 }}>
           <input
             type="submit"

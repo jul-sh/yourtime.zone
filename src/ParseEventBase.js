@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import moment from "moment-timezone";
 import deparam from "jquery-deparam";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { DecodeEventtoUnixTime } from "./helperfunctions/EncodeEvent";
 import SetBackgroundcolorAccordingToTime from "./helperfunctions/SetBackgroundcolorAccordingToTime";
+import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import NameUserTimezone from "./helperfunctions/NameUserTimezone";
 import EmbedEventButton from "./UIComponents/EmbedEventButton";
 import * as Cookies from "js-cookie";
@@ -18,12 +20,17 @@ class ParseEventBase extends React.Component {
     var EventUnixMinutesB36 = "";
     if (this.props.match.params.time) {
       EventUnixMinutesB36 = this.props.match.params.time;
+    } else {
+      SetBackgroundAccordingToCurrentVisitorTime();
+      return (
+        <span>
+          Looks like this link is broken. Please{" "}
+          <Link to="/new">Create a new event</Link>
+        </span>
+      );
     }
-    //convert to dec
-    var EventUnixMinutes = parseInt(EventUnixMinutesB36, 36);
 
-    //add two zeroes to make it unix seconds
-    var EventUnixTime = Math.floor(EventUnixMinutes * 1e2);
+    var EventUnixTime = DecodeEventtoUnixTime(EventUnixMinutesB36);
 
     const UserTimeZone = NameUserTimezone();
 
