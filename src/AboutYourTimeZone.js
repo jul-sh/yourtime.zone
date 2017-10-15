@@ -7,7 +7,7 @@ class AboutYourTimeZone extends React.Component {
   render() {
     SetBackgroundAccordingToCurrentVisitorTime();
     return (
-      <span className="introdescription">
+      <span>
         <h1 className="greeting">
           Time zones are hard.<br className="optionalbr" />I'll take care of
           them for you.
@@ -25,7 +25,7 @@ class AboutYourTimeZone extends React.Component {
             <li>Works with daylight saving time</li>
             <li>Free to use</li>
             <li>
-              <Link to="/54g0/Google%20Pixel%20Event">Live example</Link>
+              <Link to="/p/54g0/Google%20Pixel%20Event">Live example</Link>
             </li>
           </ul>
         </div>
