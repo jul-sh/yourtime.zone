@@ -3,7 +3,7 @@ branches:
     - gh-pages
 language: node_js
 node_js:
-  - "5"
+  - "8"
 before_script:
   - npm install
 before_install:
