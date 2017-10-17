@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "eslint": "^4.8.0",
+    "gh-pages-travis": "^1.0.4",
     "jquery-deparam": "^0.5.3"
   }
 }

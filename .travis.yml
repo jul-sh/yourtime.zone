@@ -1,4 +1,22 @@
 language: node_js
 node_js:
-  - "node"
-  - "lts/*"
+- node
+- lts/*
+branches:
+  except:
+    - gh-pages
+before_install:
+- openssl aes-256-cbc -K $encrypted_eb7b9e2e2d7d_key -iv $encrypted_eb7b9e2e2d7d_iv
+  -in id_rsa.enc -out id_rsa -d
+
+  script:
+  # run from node_modules if added to package.json
+  - node_modules/.bin/gh-pages-travis
+env:
+  global:
+    - DEPLOY_BRANCH="master"
+    - SOURCE_DIR="/"
+    - TARGET_BRANCH="gh-pages"
+    - SSH_KEY="id_rsa"
+    - GIT_NAME="travis"
+    - GIT_EMAIL="deploy@travis-ci.org"
