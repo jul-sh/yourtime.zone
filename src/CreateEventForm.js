@@ -1,17 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import NameUserTimezone from "./helperfunctions/NameUserTimezone";
 import ComboDatePicker from "./helperfunctions/combodate";
 import Timepicker from "./helperfunctions/timepicker";
 import { EncodeEvent } from "./helperfunctions/EncodeEvent";
 import * as Cookies from "js-cookie";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Redirect } from "react-router-dom";
 /*  To do: Clean up the implementation of the time + date picker, as it is quite messy */
 const timepickerstyles = {
   margin: "0 0 0 20px"
@@ -33,12 +27,12 @@ class CreateEventForm extends React.Component {
     var minutepicked =
       timepickerminute.options[timepickerminute.selectedIndex].value;
     var ampm = timepickerampm.options[timepickerampm.selectedIndex].value;
-    hourpicked = parseInt(hourpicked);
-    minutepicked = parseInt(minutepicked);
-    if (ampm == "PM") {
+    hourpicked = parseInt(hourpicked, 10);
+    minutepicked = parseInt(minutepicked, 10);
+    if (ampm === "PM") {
       hourpicked = hourpicked + 12;
     }
-    if (hourpicked == 24) {
+    if (hourpicked === 24) {
       hourpicked = 0;
     }
     var EventTime = window.combodatecurrentstate;
@@ -82,7 +76,6 @@ class CreateEventForm extends React.Component {
           <input
             type="text"
             value={this.state.value}
-            type="text"
             placeholder="Juliette's Webinar"
             id="Eventname"
             name="nameofevent"

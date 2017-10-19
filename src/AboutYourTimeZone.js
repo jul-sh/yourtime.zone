@@ -1,7 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class AboutYourTimeZone extends React.Component {
   render() {

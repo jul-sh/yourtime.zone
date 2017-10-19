@@ -1,14 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import moment from "moment-timezone";
-import deparam from "jquery-deparam";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import { DecodeEventtoUnixTime } from "./helperfunctions/EncodeEvent";
+import deparam from "./helperfunctions/deparam";
 import SetBackgroundcolorAccordingToTime from "./helperfunctions/SetBackgroundcolorAccordingToTime";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import NameUserTimezone from "./helperfunctions/NameUserTimezone";
-import EmbedEventButton from "./UIComponents/EmbedEventButton";
-import * as Cookies from "js-cookie";
 
 class ParseEventBase extends React.Component {
   render() {
@@ -34,13 +31,13 @@ class ParseEventBase extends React.Component {
 
     const UserTimeZone = NameUserTimezone();
 
-    if (EventName == "") {
+    if (EventName === "") {
       console.log("It appears that there is not a valid name");
       EventName = "the event";
     }
 
     //If the old syntax (1.0) is present, override EventName + EventUnixTime to render that one. It looks like: https://yourtime.zone/p/?timeUTC=2017-10-12T22%3A00%3A00.000Z&Title=old%20syntax?end
-    if (window.location.search.substring(0, 8) == "?timeUTC") {
+    if (window.location.search.substring(0, 8) === "?timeUTC") {
       //get serialized string from URL
       var currenturl = window.location.href;
       var OldEventSerialized = currenturl.substring(
@@ -73,7 +70,6 @@ class ParseEventBase extends React.Component {
       sameElse: "MMMM Do YYYY [at] h:mm A"
     });
     const now = moment();
-    const IsEventInPast = moment(EventTime).isBefore(now);
     var Verb = "starts";
     if (moment(EventTime).isBefore(now)) {
       Verb = "started";

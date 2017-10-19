@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 /*
  * reactComboDatePicker v1.0.1
@@ -30,7 +29,7 @@ class ComboDatePicker extends React.Component {
     this.attrsYear = props.attrsYear || {};
 
     // Initialize order.
-    if (typeof props.order != "string") {
+    if (typeof props.order !== "string") {
       this.order = "dmy";
     } else {
       this.order = props.order.toLowerCase();
@@ -38,7 +37,7 @@ class ComboDatePicker extends React.Component {
 
     // Initialize minimal and maximum values.
     this.minDate = ComboDatePicker.parseDate(props.minDate, props.timezone);
-    if (this.minDate == null) {
+    if (this.minDate === null) {
       var now = new Date();
       this.minDate = new Date(
         now.getFullYear() - 100,
@@ -51,14 +50,14 @@ class ComboDatePicker extends React.Component {
       );
     }
     this.maxDate = ComboDatePicker.parseDate(props.maxDate, props.timezone);
-    if (this.maxDate == null) {
+    if (this.maxDate === null) {
       this.maxDate = new Date();
     }
 
     // Verify if selected date is in the valid range.
-    if (this.model != null && this.model < this.minDate)
+    if (this.model !== null && this.model < this.minDate)
       this.model = this.minDate;
-    if (this.model != null && this.model > this.maxDate)
+    if (this.model !== null && this.model > this.maxDate)
       this.model = this.maxDate;
 
     // Initialize place holders.
@@ -66,13 +65,14 @@ class ComboDatePicker extends React.Component {
     if (
       props.placeholder !== undefined &&
       props.placeholder !== null &&
-      (typeof props.placeholder == "string" || Array.isArray(props.placeholder))
+      (typeof props.placeholder === "string" ||
+        Array.isArray(props.placeholder))
     ) {
       var holders =
-        typeof props.placeholder == "string"
+        typeof props.placeholder === "string"
           ? props.placeholder.split(",")
           : props.placeholder;
-      if (holders.length == 3) {
+      if (holders.length === 3) {
         this.placeHolders = holders;
       }
     }
@@ -93,11 +93,11 @@ class ComboDatePicker extends React.Component {
       "Dec"
     ];
     if (props.months !== undefined && props.months !== null) {
-      if (typeof props.months == "string") {
+      if (typeof props.months === "string") {
         var months = props.months.split(",");
-        if (months.length == 12) this.monthNames = months;
+        if (months.length === 12) this.monthNames = months;
       }
-      if (Array.isArray(props.months) && props.months.length == 12) {
+      if (Array.isArray(props.months) && props.months.length === 12) {
         this.monthNames = props.months;
       }
     }
@@ -114,8 +114,8 @@ class ComboDatePicker extends React.Component {
 
     // Verify if the order of the years must be reversed.
     if (
-      typeof props.yearOrder == "string" &&
-      props.yearOrder.indexOf("des") == 0
+      typeof props.yearOrder === "string" &&
+      props.yearOrder.indexOf("des") === 0
     ) {
       this.yearList.reverse();
     }
@@ -194,25 +194,25 @@ class ComboDatePicker extends React.Component {
     // Start date is 1, unless the selected month and year matchs the minimum date.
     var start = 1;
     if (
-      this.model != null &&
-      this.model.getMonth() == this.minDate.getMonth() &&
-      this.model.getFullYear() == this.minDate.getFullYear()
+      this.model !== null &&
+      this.model.getMonth() === this.minDate.getMonth() &&
+      this.model.getFullYear() === this.minDate.getFullYear()
     ) {
       start = this.minDate.getDate();
     }
 
     // End date is 30 or 31 (28 or 29 in February), unless the selected month and year matchs the maximum date.
     var end =
-      this.model != null
+      this.model !== null
         ? ComboDatePicker.maxDate(
             this.model.getMonth() + 1,
             this.model.getFullYear()
           )
         : 31;
     if (
-      this.model != null &&
-      this.model.getMonth() == this.maxDate.getMonth() &&
-      this.model.getFullYear() == this.maxDate.getFullYear()
+      this.model !== null &&
+      this.model.getMonth() === this.maxDate.getMonth() &&
+      this.model.getFullYear() === this.maxDate.getFullYear()
     ) {
       end = this.maxDate.getDate();
     }
@@ -233,13 +233,13 @@ class ComboDatePicker extends React.Component {
   getMonthList() {
     // Some months can not be choosed if the year matchs with the year of the minimum or maximum dates.
     var start =
-      this.model != null &&
-      this.model.getFullYear() == this.minDate.getFullYear()
+      this.model !== null &&
+      this.model.getFullYear() === this.minDate.getFullYear()
         ? this.minDate.getMonth()
         : 0;
     var end =
-      this.model != null &&
-      this.model.getFullYear() == this.maxDate.getFullYear()
+      this.model !== null &&
+      this.model.getFullYear() === this.maxDate.getFullYear()
         ? this.maxDate.getMonth()
         : 11;
 
@@ -336,7 +336,7 @@ class ComboDatePicker extends React.Component {
       if (myDate instanceof Date) {
         res = myDate;
       } else {
-        if (typeof myDate == "number" || typeof myDate == "string") {
+        if (typeof myDate === "number" || typeof myDate === "string") {
           // Parse date.
           res = new Date(isNaN(myDate) ? myDate : parseInt(myDate, 10));
 
@@ -371,12 +371,12 @@ class ComboDatePicker extends React.Component {
      */
   static maxDate(month, year) {
     var res = 31;
-    if (month != null) {
-      if (month == 4 || month == 6 || month == 9 || month == 11) {
+    if (month !== null) {
+      if (month === 4 || month === 6 || month === 9 || month === 11) {
         res = 30;
       }
-      if (year != null && month == 2) {
-        res = year % 4 == 0 && year % 100 != 0 ? 29 : 28;
+      if (year !== null && month === 2) {
+        res = year % 4 === 0 && year % 100 !== 0 ? 29 : 28;
       }
     }
     return res;
@@ -392,16 +392,17 @@ ComboDatePicker.MySelect = class extends React.Component {
     this.state = {};
 
     // Set list of items.
+    // eslint-disable-next-line
     this.state.items = props.items || [];
 
     // Set type and value.
     this.value = null;
     if (props.model) {
-      if (props.type == "d" || props.type == "date")
+      if (props.type === "d" || props.type === "date")
         this.value = props.model.getDate();
-      if (props.type == "m" || props.type == "month")
+      if (props.type === "m" || props.type === "month")
         this.value = props.model.getMonth();
-      if (props.type == "y" || props.type == "year")
+      if (props.type === "y" || props.type === "year")
         this.value = props.model.getFullYear();
     }
     this.type = props.type;
@@ -447,7 +448,7 @@ ComboDatePicker.MySelect = class extends React.Component {
       options.push(
         <option
           value={this.state.items[i].value}
-          selected={this.state.items[i].value == this.value}
+          selected={this.state.items[i].value === this.value}
         >
           {this.state.items[i].name}
         </option>

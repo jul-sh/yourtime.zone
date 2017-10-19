@@ -1,8 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import * as Cookies from "js-cookie";
-import SkyLight from "react-skylight";
-import { BrowserRouter as Link } from "react-router-dom";
+//import SkyLight from "react-skylight";
+//import { BrowserRouter as Link } from "react-router-dom";
 
 class EmbedEventButton extends React.Component {
   render() {
@@ -22,12 +21,13 @@ class EmbedEventButton extends React.Component {
     var referrer = document.referrer;
 
     //if the current path starts with share
-    if (this.props.location.pathname.substring(0, 6) == "/share") {
+    if (this.props.location.pathname.substring(0, 6) === "/share") {
       return (
         <span>
           <a
             href="https://app.mailerlite.com/webforms/submit/q7k9r7"
             target="_blank"
+            rel="noopener noreferrer"
             className="bottomareabutton btn-class"
             id="embedbutton"
           >
@@ -39,7 +39,7 @@ class EmbedEventButton extends React.Component {
 
     //if the visitor is also creator of the event
     if (
-      creatorcookie == EventID ||
+      creatorcookie === EventID ||
       referrer.indexOf(CurrentHost + "/share/") >= 0
     ) {
       return (
@@ -47,6 +47,7 @@ class EmbedEventButton extends React.Component {
           <a
             href="https://app.mailerlite.com/webforms/submit/q7k9r7"
             target="_blank"
+            rel="noopener noreferrer"
             className="bottomareabutton btn-class"
             id="embedbutton"
           >

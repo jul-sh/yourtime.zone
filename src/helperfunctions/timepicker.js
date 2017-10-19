@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import moment from "moment";
 
 class Timepicker extends React.Component {

@@ -1,9 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import * as Clipboard from "clipboard";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import * as Cookies from "js-cookie";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class ShareEvent extends React.Component {
   constructor(props) {

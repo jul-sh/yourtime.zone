@@ -16,8 +16,7 @@ function EncodeEvent(EventTime) {
 
 function DecodeEventtoUnixTime(EventEpoch2017MinutesB64) {
   // decode to decimal
-  EventEpoch2017MinutesB64 = parseInt(EventEpoch2017MinutesB64, 36);
-  var EventEpoch2017Minutes = parseInt(EventEpoch2017MinutesB64);
+  var EventEpoch2017Minutes = parseInt(EventEpoch2017MinutesB64, 36);
   var EventUnixMinutes = EventEpoch2017Minutes + 14832288;
   var EventUnixTime = Math.floor(EventUnixMinutes * 1e2);
   return EventUnixTime;

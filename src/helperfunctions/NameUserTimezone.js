@@ -3,10 +3,10 @@ import moment from "moment-timezone";
 function NameUserTimezone() {
   var UserTimeZone = moment.tz.guess();
   var UserTimeZoneDisplay = UserTimeZone.name;
-  var UserTimeZoneDisplay = UserTimeZone.replace(/_/g, " ");
+  UserTimeZoneDisplay = UserTimeZone.replace(/_/g, " ");
   if (UserTimeZoneDisplay.indexOf("/") > -1) {
     //if usertimezonedisplay is like 'europe/berlin', display 'berlin' instead
-    var UserTimeZoneDisplay = UserTimeZoneDisplay.split("/")[1];
+    UserTimeZoneDisplay = UserTimeZoneDisplay.split("/")[1];
   }
   return UserTimeZoneDisplay;
 }
