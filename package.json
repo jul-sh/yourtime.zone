@@ -21,7 +21,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint": "^4.8.0",
-    "jquery-deparam": "^0.5.3"
+    "eslint": "^4.8.0"
   }
 }
