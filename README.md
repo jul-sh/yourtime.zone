@@ -1,4 +1,4 @@
-Automatically built & deployed to the pages branch courtesy of Travis CI
+Automatically built & deployed to the pages branch courtesy of Travis CI. SSL provided by cloudflare.
 
 
 [![Build Status](https://travis-ci.org/laurajuliette/yourtime.zone.svg?branch=master)](https://travis-ci.org/laurajuliette/yourtime.zone)
