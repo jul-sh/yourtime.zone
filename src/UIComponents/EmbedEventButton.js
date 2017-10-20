@@ -1,7 +1,7 @@
 import React from "react";
 import * as Cookies from "js-cookie";
-//import SkyLight from "react-skylight";
-//import { BrowserRouter as Link } from "react-router-dom";
+//eslint-disable-next-line
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class EmbedEventButton extends React.Component {
   render() {

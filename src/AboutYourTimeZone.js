@@ -1,6 +1,7 @@
 import React from "react";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
-import { BrowserRouter as Link } from "react-router-dom";
+// eslint-disable-next-line
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class AboutYourTimeZone extends React.Component {
   render() {
