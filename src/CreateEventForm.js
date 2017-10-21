@@ -5,7 +5,8 @@ import ComboDatePicker from "./helperfunctions/combodate";
 import Timepicker from "./helperfunctions/timepicker";
 import { EncodeEvent } from "./helperfunctions/EncodeEvent";
 import * as Cookies from "js-cookie";
-import { BrowserRouter as Redirect } from "react-router-dom";
+// eslint-disable-next-line
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
 /*  To do: Clean up the implementation of the time + date picker, as it is quite messy */
 const timepickerstyles = {
   margin: "0 0 0 20px"
