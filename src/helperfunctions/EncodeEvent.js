@@ -10,13 +10,12 @@ function EncodeEvent(EventTime) {
   // Create a New Years 2017 UTC epoch, since yourtime.zone doesn't supoort earlier dates
   var EventEpoch2017Minutes = EventUnixMinutes - 14832288;
   //encode as a b36 string
-  var EventEpoch2017MinutesB64 = EventEpoch2017Minutes.toString(36);
-  return EventEpoch2017MinutesB64;
+  var EventEpoch2017MinutesB36 = EventEpoch2017Minutes.toString(36);
+  return EventEpoch2017MinutesB36;
 }
 
-function DecodeEventtoUnixTime(EventEpoch2017MinutesB64) {
-  // decode to decimal
-  var EventEpoch2017Minutes = parseInt(EventEpoch2017MinutesB64, 36);
+function DecodeEventtoUnixTime(EventEpoch2017MinutesB36) {
+  var EventEpoch2017Minutes = parseInt(EventEpoch2017MinutesB36, 36);
   var EventUnixMinutes = EventEpoch2017Minutes + 14832288;
   var EventUnixTime = Math.floor(EventUnixMinutes * 1e2);
   return EventUnixTime;

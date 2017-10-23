@@ -7,6 +7,7 @@ import deparam from "./helperfunctions/deparam";
 import SetBackgroundcolorAccordingToTime from "./helperfunctions/SetBackgroundcolorAccordingToTime";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import NameUserTimezone from "./helperfunctions/NameUserTimezone";
+import SmartBr from "./UIComponents/SmartBr";
 
 class ParseEventBase extends React.Component {
   render() {
@@ -86,7 +87,7 @@ class ParseEventBase extends React.Component {
     SetBackgroundcolorAccordingToTime(hours);
     return (
       <span>
-        In your timezone ({UserTimeZone}),<br className="brmax800px" />
+        In your timezone ({UserTimeZone}),<SmartBr maxWidth="800" />
         {EventName} {Verb}
         {OptionalPreposition}
         <br />
