@@ -2,7 +2,7 @@ import React from "react";
 import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import SmartBr from "./UIComponents/SmartBr";
+import ResponsiveBr from "react-responsivebr";
 
 class AboutYourTimeZone extends React.Component {
   render() {
@@ -10,8 +10,8 @@ class AboutYourTimeZone extends React.Component {
     return (
       <span>
         <h1 className="greeting">
-          Time zones are hard.<SmartBr minWidth="340" />I'll take care of them
-          for you.
+          Time zones are hard.<ResponsiveBr minWidth="340" />I'll take care of
+          them for you.
         </h1>
         <div className="bodytext">
           <span>
