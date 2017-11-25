@@ -52,7 +52,6 @@ class CreateEventForm extends React.Component {
     });
     event.preventDefault();
   }
-  componentDidMount() {}
   render() {
     SetBackgroundAccordingToCurrentVisitorTime();
     const UserTimeZone = NameUserTimezone();

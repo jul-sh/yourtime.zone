@@ -10,9 +10,9 @@
     "moment-timezone": "^0.5.13",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-responsivebr": "^0.0.3",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14",
-    "react-responsivebr": "0.0.1"
+    "react-scripts": "1.0.14"
   },
   "scripts": {
     "start": "react-scripts start",

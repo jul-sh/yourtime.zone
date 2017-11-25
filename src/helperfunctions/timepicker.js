@@ -2,18 +2,47 @@ import React from "react";
 import moment from "moment";
 
 class Timepicker extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+
     var defaulthour = moment()
       .add(1, "h")
-      .format("h");
-    defaulthour = defaulthour.toString();
+      .format("h")
+      .toString();
     var defaultampm = moment().format("A");
+    var defaultminute = "0";
+
+    this.state = {
+      hour: defaulthour,
+      minute: defaultminute,
+      ampm: defaultampm
+    };
+
+    this.handleHourChange = this.handleHourChange.bind(this);
+    this.handleMinuteChange = this.handleMinuteChange.bind(this);
+    this.handleAMPMChange = this.handleAMPMChange.bind(this);
+  }
+
+  handleHourChange(event) {
+    this.setState({ hour: event.target.value });
+  }
+
+  handleMinuteChange(event) {
+    this.setState({ minute: event.target.value });
+  }
+
+  handleAMPMChange(event) {
+    this.setState({ ampm: event.target.value });
+  }
+
+  render() {
     return (
       <span className="timeselector" style={this.props.style}>
         <span>
           <select
             id="timepickerhour"
-            defaultValue={defaulthour}
+            value={this.state.hour}
+            onChange={this.handleHourChange}
             className="hour"
             style={{ width: "auto" }}
           >
@@ -32,7 +61,8 @@ class Timepicker extends React.Component {
           </select>
           <select
             id="timepickerminute"
-            defaultValue="0"
+            value={this.state.minute}
+            onChange={this.handleMinuteChange}
             className="minute"
             style={{ width: "auto" }}
           >
@@ -51,9 +81,10 @@ class Timepicker extends React.Component {
           </select>
           <select
             id="timepickerampm"
-            defaultValue={defaultampm}
+            value={this.state.ampm}
             className="ampm"
             style={{ width: "auto" }}
+            onChange={this.handleAMPMChange}
           >
             <option value="AM">AM</option>
             <option value="PM">PM</option>
