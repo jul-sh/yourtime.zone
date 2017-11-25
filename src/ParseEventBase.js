@@ -74,7 +74,7 @@ class ParseEventBase extends React.Component {
     const now = moment();
     var Verb = "starts";
     if (moment(EventTime).isBefore(now)) {
-      Verb = "started";
+      Verb = "took place";
     }
     var OptionalPreposition = "";
     if (
