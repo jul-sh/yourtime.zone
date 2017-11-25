@@ -15,9 +15,8 @@ class AboutYourTimeZone extends React.Component {
         </h1>
         <div className="bodytext">
           <span>
-            yourtime.zone automatically translates the time of an event into the
-            visitor's local time. Great for global events, such as webinars or
-            live-streams.{" "}
+            yourtime.zone translates the time of an event into the visitor's
+            local time. Great for webinars and live-streams.{" "}
             <span id="credit">
               Built by <a href="https://juliette.sh">Juliette Pretot</a>
             </span>
