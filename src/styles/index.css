@@ -310,6 +310,7 @@ form input[type="text"] {
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 44px;
+    line-height: 1.3em;
   }
 
   h2 {
