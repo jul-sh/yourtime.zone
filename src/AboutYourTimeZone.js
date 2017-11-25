@@ -16,15 +16,14 @@ class AboutYourTimeZone extends React.Component {
         <div className="bodytext">
           <span>
             yourtime.zone automatically translates the time of an event into the
-            visitor's local time. Great for organizing global events, such as
-            webinars or live-streams.{" "}
+            visitor's local time. Great for global events, such as webinars or
+            live-streams.{" "}
             <span id="credit">
               Built by <a href="https://juliette.sh">Juliette Pretot</a>
             </span>
           </span>
           <ul className="introbulletpoints">
             <li>Works with daylight saving time</li>
-            <li>Free to use</li>
             <li>
               <Link to="/p/54g0/Google%20Pixel%20Event">Live example</Link>
             </li>
