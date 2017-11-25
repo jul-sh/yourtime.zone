@@ -220,7 +220,7 @@ form input[type="text"] {
   border-radius: 5px 5px 5px 5px;
   width: auto;
   height: auto;
-  font-size: 16px;
+  font-size: 18px;
   padding: 14px 42px;
   background: #ffffff;
   transition: all 0.5s;
@@ -243,7 +243,7 @@ form input[type="text"] {
 }
 
 #copy-button {
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px 14px;
   margin-left: 5px;
   border: 1px solid #d6d6d6;
@@ -269,7 +269,7 @@ form input[type="text"] {
 
 .bottomareabutton {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   color: #fff;
   padding: 6px 12px;
