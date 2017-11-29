@@ -15,7 +15,7 @@ class ParseeventBase extends React.Component {
     };
   }
 
-  componentWillMount = () => {
+  componentWillMount() {
     //if there is a name specified, use it.
     if (this.props.match.params.name) {
       this.setState({ eventName: '"' + this.props.match.params.name + '"' });
@@ -26,8 +26,8 @@ class ParseeventBase extends React.Component {
     //convert event into local time
     const event = encodedTimeToLocalTime(this.props.match.params.time);
     this.setState({ eventTime: event });
-    SetBackgroundcolorAccordingToTime(this.state.eventTime.inLocalTime);
-  };
+    SetBackgroundcolorAccordingToTime(event.inLocalTime);
+  }
 
   render() {
     return (

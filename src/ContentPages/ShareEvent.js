@@ -1,13 +1,25 @@
 import React from "react";
-import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import * as Clipboard from "clipboard";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
+import SetBackgroundcolorAccordingToTime from "../helperfunctions/SetBackgroundcolorAccordingToTime";
+import encodedTimeToLocalTime from "../helperfunctions/encodedTimeToLocalTime";
+
 class ShareEvent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "Nicely done." };
+    this.state = {
+      name: "Nicely done.",
+      eventName: this.props.match.params.name,
+      eventTime: this.props.match.params.time
+    };
+  }
+
+  componentWillMount() {
+    //convert event into local time & set background accordingly
+    const event = encodedTimeToLocalTime(this.props.match.params.time);
+    SetBackgroundcolorAccordingToTime(event.inLocalTime);
   }
 
   componentDidMount() {
@@ -21,61 +33,49 @@ class ShareEvent extends React.Component {
     });
   }
 
-  handleChange(event) {
+  copyUrlToClipboard(event) {
     event.target.select();
     event.preventDefault();
   }
 
-  render() {
-    SetBackgroundAccordingToCurrentVisitorTime();
-
-    var EventName = "";
-    if (this.props.match.params.name) {
-      EventName = this.props.match.params.name;
+  generatePath = () => {
+    if (!this.state.eventTime) {
+      return "Error, please create another event.";
     }
-
-    var EventUnixMinutesB36 = "";
-    if (this.props.match.params.time) {
-      EventUnixMinutesB36 = this.props.match.params.time;
-    }
-
-    function generatePath() {
-      if (!EventUnixMinutesB36) {
-        return "/new";
-      }
-      if (!EventName) {
-        const path = "/p/" + EventUnixMinutesB36;
-        return path;
-      }
-      const path = "/p/" + EventUnixMinutesB36 + "/" + EventName;
+    if (!this.state.eventName) {
+      const path = "/p/" + this.state.eventTime;
       return path;
     }
+    const path = "/p/" + this.state.eventTime + "/" + this.state.eventName;
+    return path;
+  };
 
-    function generateURL() {
-      if (!EventUnixMinutesB36) {
-        return "Error, please create another event.";
-      }
-      var path = generatePath();
-      const CurrentDomain = window.location.origin;
-      var EventURL = CurrentDomain + path;
-      return EventURL;
+  generateURL = () => {
+    if (!this.state.eventTime) {
+      return "Error, please create another event.";
     }
+    var path = this.generatePath();
+    const CurrentDomain = window.location.origin;
+    var EventURL = CurrentDomain + path;
+    return EventURL;
+  };
 
+  render() {
     return (
       <div>
         <h1 style={{ marginTop: "0" }}>{this.state.name}</h1>
         <p>
           Now, simply share the link below.<br className="optionalbr" />It will
-          display <Link to={generatePath()}>the event</Link> in the local time
-          of whoever visits it.
+          display <Link to={this.generatePath()}>the event</Link> in the local
+          time of whoever visits it.
         </p>
         <form>
           <div className="input-group">
             <input
-              onClick={this.handleChange}
+              onClick={this.copyUrlToClipboard}
               type="text"
               className="form-control shareurl"
-              defaultValue={generateURL()}
+              defaultValue={this.generateURL()}
               readOnly
               id="copy-input"
             />
