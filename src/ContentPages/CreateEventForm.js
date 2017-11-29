@@ -1,9 +1,9 @@
 import React from "react";
-import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
-import NameUserTimezone from "./helperfunctions/NameUserTimezone";
-import ComboDatePicker from "./helperfunctions/combodate";
-import Timepicker from "./helperfunctions/timepicker";
-import { EncodeEvent } from "./helperfunctions/EncodeEvent";
+import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
+import NameUserTimezone from "../helperfunctions/NameUserTimezone";
+import ComboDatePicker from "../helperfunctions/combodate";
+import Timepicker from "../helperfunctions/timepicker";
+import { EncodeEvent } from "../helperfunctions/EncodeEvent";
 import * as Cookies from "js-cookie";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Redirect } from "react-router-dom";

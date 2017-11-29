@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import AboutYourTimeZone from "./AboutYourTimeZone";
-import CreateEventForm from "./CreateEventForm";
-import ShareEvent from "./ShareEvent";
-import ParseEventBase from "./ParseEventBase";
-import EmbedEventButton from "./UIComponents/EmbedEventButton";
+import AboutYourTimeZone from "./ContentPages/AboutYourTimeZone";
+import CreateEventForm from "./ContentPages/CreateEventForm";
+import ShareEvent from "./ContentPages/ShareEvent";
+import ParseEventBase from "./ContentPages/ParseEventBase";
+import EmbedEventButton from "./Footer/EmbedEventButton";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./helperfunctions/ScrollToTop";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
+import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import * as Clipboard from "clipboard";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";

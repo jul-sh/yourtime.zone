@@ -2,11 +2,11 @@ import React from "react";
 import moment from "moment-timezone";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { DecodeEventtoUnixTime } from "./helperfunctions/EncodeEvent";
-import deparam from "./helperfunctions/deparam";
-import SetBackgroundcolorAccordingToTime from "./helperfunctions/SetBackgroundcolorAccordingToTime";
-import SetBackgroundAccordingToCurrentVisitorTime from "./helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
-import NameUserTimezone from "./helperfunctions/NameUserTimezone";
+import { DecodeEventtoUnixTime } from "../helperfunctions/EncodeEvent";
+import deparam from "../helperfunctions/deparam";
+import SetBackgroundcolorAccordingToTime from "../helperfunctions/SetBackgroundcolorAccordingToTime";
+import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
+import NameUserTimezone from "../helperfunctions/NameUserTimezone";
 import ResponsiveBr from "react-responsivebr";
 
 class ParseEventBase extends React.Component {
