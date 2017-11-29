@@ -22,8 +22,8 @@ class ShareEvent extends React.Component {
   }
 
   handleChange(event) {
-    event.preventDefault();
     event.target.select();
+    event.preventDefault();
   }
 
   render() {

@@ -26,10 +26,10 @@ class ParseeventBase extends React.Component {
     //convert event into local time
     const event = encodedTimeToLocalTime(this.props.match.params.time);
     this.setState({ eventTime: event });
+    SetBackgroundcolorAccordingToTime(this.state.eventTime.inLocalTime);
   };
 
   render() {
-    SetBackgroundcolorAccordingToTime(this.state.eventTime.inLocalTime);
     return (
       <span>
         In your timezone ({this.state.eventTime.userTimeZone}),<ResponsiveBr maxWidth="800" />
