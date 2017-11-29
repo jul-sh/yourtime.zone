@@ -2,8 +2,8 @@ import moment from "moment-timezone";
 import SetBackgroundcolorAccordingToTime from "./SetBackgroundcolorAccordingToTime";
 
 function SetBackgroundAccordingToCurrentVisitorTime() {
-  var hours = moment().format("H");
-  SetBackgroundcolorAccordingToTime(hours);
+  var now = moment();
+  SetBackgroundcolorAccordingToTime(now);
 }
 
 export default SetBackgroundAccordingToCurrentVisitorTime;
