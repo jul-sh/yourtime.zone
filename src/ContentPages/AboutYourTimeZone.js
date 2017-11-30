@@ -1,5 +1,5 @@
 import React from "react";
-import { setBackgroundAccordingToCurrentVisitorTime } from "~/helperfunctions/setBackground";
+import { setBackgroundAccordingToCurrentVisitorTime } from "../helperfunctions/setBackground";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ResponsiveBr from "react-responsivebr";

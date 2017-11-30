@@ -2,10 +2,10 @@ import React from "react";
 import {
   setBackgroundAccordingToCurrentVisitorTime,
   setBackgroundAccordingToTime
-} from "~/helperfunctions/setBackground";
-import NameUserTimezone from "~/helperfunctions/nameUserTimezone";
-import { EncodeEvent } from "~/helperfunctions/encodeEvent";
-import DateTimePicker from "~/UIComponents/DateTimePicker";
+} from "../helperfunctions/setBackground";
+import NameUserTimezone from "../helperfunctions/nameUserTimezone";
+import { EncodeEvent } from "../helperfunctions/encodeEvent";
+import DateTimePicker from "../UIComponents/DateTimePicker";
 import * as Cookies from "js-cookie";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
