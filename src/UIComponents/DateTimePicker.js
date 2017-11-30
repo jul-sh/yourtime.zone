@@ -1,6 +1,6 @@
 import React from "react";
-import ComboDatePicker from "../helperfunctions/combodate";
-import Timepicker from "../helperfunctions/timepicker";
+import ComboDatePicker from "./../helperfunctions/combodate";
+import Timepicker from "./../helperfunctions/timepicker";
 
 class DateTimePicker extends React.Component {
   constructor(props) {
