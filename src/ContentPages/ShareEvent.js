@@ -19,7 +19,8 @@ class ShareEvent extends React.Component {
   componentWillMount() {
     //convert event into local time & set background accordingly
     const event = encodedTimeToLocalTime(this.props.match.params.time);
-    setBackgroundAccordingToTime(event);
+    console.log(event);
+    setBackgroundAccordingToTime(event.inLocalTime);
   }
 
   componentDidMount() {
