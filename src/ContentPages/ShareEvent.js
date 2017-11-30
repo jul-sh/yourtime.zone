@@ -4,7 +4,7 @@ import * as Clipboard from "clipboard";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import { setBackgroundAccordingToTime } from "~/helperfunctions/setBackground";
-import encodedTimeToLocalTime from "./../helperfunctions/encodedTimeToLocalTime";
+import encodedTimeToLocalTime from "~/helperfunctions/encodedTimeToLocalTime";
 
 class ShareEvent extends React.Component {
   constructor(props) {
