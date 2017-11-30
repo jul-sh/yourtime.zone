@@ -83,10 +83,15 @@ h2 {
     "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond",
     "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook",
     "Century Schoolbook L", Georgia, serif;
+  margin: 20px auto;
 }
 
 h3 {
   font-weight: bold;
+}
+
+p {
+  margin: 20px 0;
 }
 
 select {
