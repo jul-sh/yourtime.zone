@@ -1,12 +1,12 @@
 import React from "react";
-import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
+import { setBackgroundAccordingToCurrentVisitorTime } from "../helperfunctions/setBackground";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ResponsiveBr from "react-responsivebr";
 
 class AboutYourTimeZone extends React.Component {
   render() {
-    SetBackgroundAccordingToCurrentVisitorTime();
+    setBackgroundAccordingToCurrentVisitorTime();
     return (
       <span>
         <h1 className="greeting">

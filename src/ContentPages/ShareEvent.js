@@ -3,7 +3,7 @@ import * as Clipboard from "clipboard";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-import SetBackgroundcolorAccordingToTime from "../helperfunctions/SetBackgroundcolorAccordingToTime";
+import { setBackgroundAccordingToTime } from "../helperfunctions/setBackground";
 import encodedTimeToLocalTime from "../helperfunctions/encodedTimeToLocalTime";
 
 class ShareEvent extends React.Component {
@@ -19,7 +19,7 @@ class ShareEvent extends React.Component {
   componentWillMount() {
     //convert event into local time & set background accordingly
     const event = encodedTimeToLocalTime(this.props.match.params.time);
-    SetBackgroundcolorAccordingToTime(event.inLocalTime);
+    setBackgroundAccordingToTime(event);
   }
 
   componentDidMount() {

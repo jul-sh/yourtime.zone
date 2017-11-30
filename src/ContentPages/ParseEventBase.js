@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ResponsiveBr from "react-responsivebr";
 
-import SetBackgroundcolorAccordingToTime from "../helperfunctions/SetBackgroundcolorAccordingToTime";
+import { setBackgroundAccordingToTime } from "../helperfunctions/setBackground";
 import encodedTimeToLocalTime from "../helperfunctions/encodedTimeToLocalTime";
 
 class ParseeventBase extends React.Component {
@@ -26,7 +26,7 @@ class ParseeventBase extends React.Component {
     //convert event into local time
     const event = encodedTimeToLocalTime(this.props.match.params.time);
     this.setState({ eventTime: event });
-    SetBackgroundcolorAccordingToTime(event.inLocalTime);
+    setBackgroundAccordingToTime(event.inLocalTime);
   }
 
   render() {

@@ -1,7 +1,12 @@
-import "../styles/backgroundgradient.css";
 import moment from "moment-timezone";
+import "../styles/backgroundgradient.css";
 
-function SetBackgroundcolorAccordingToTime(eventUnixTime) {
+function setBackgroundAccordingToCurrentVisitorTime() {
+  var now = moment();
+  setBackgroundAccordingToTime(now);
+}
+
+function setBackgroundAccordingToTime(eventUnixTime) {
   var hour = moment(eventUnixTime).format("H");
   var HourClass = "t" + hour.toString() + " gradient";
   //only update class if the value has changed
@@ -10,4 +15,7 @@ function SetBackgroundcolorAccordingToTime(eventUnixTime) {
   }
 }
 
-export default SetBackgroundcolorAccordingToTime;
+export {
+  setBackgroundAccordingToCurrentVisitorTime,
+  setBackgroundAccordingToTime
+};

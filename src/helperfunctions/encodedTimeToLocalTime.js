@@ -1,6 +1,6 @@
 import moment from "moment-timezone";
-import { DecodeEventtoUnixTime } from "../helperfunctions/EncodeEvent";
-import NameUserTimezone from "../helperfunctions/NameUserTimezone";
+import { DecodeEventtoUnixTime } from "../helperfunctions/encodeEvent";
+import NameUserTimezone from "../helperfunctions/nameUserTimezone";
 
 function encodedTimeToLocalTime(encodedTime) {
   const eventUnixTime = DecodeEventtoUnixTime(encodedTime);

@@ -1,7 +1,10 @@
 import React from "react";
-import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
-import NameUserTimezone from "../helperfunctions/NameUserTimezone";
-import { EncodeEvent } from "../helperfunctions/EncodeEvent";
+import {
+  setBackgroundAccordingToCurrentVisitorTime,
+  setBackgroundAccordingToTime
+} from "../helperfunctions/setBackground";
+import NameUserTimezone from "../helperfunctions/nameUserTimezone";
+import { EncodeEvent } from "../helperfunctions/encodeEvent";
 import DateTimePicker from "../UIComponents/DateTimePicker";
 import * as Cookies from "js-cookie";
 // eslint-disable-next-line
@@ -18,14 +21,13 @@ class CreateEventForm extends React.Component {
       dateTime: "",
       eventName: ""
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
-    SetBackgroundAccordingToCurrentVisitorTime();
+    setBackgroundAccordingToCurrentVisitorTime();
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     var EventTime = this.state.dateTime;
     var EventName = this.state.eventName;
     //convert to unix seconds time
@@ -37,10 +39,11 @@ class CreateEventForm extends React.Component {
       redirectURL: "/share/" + EncodedEventTime + "/" + EventName
     });
     event.preventDefault();
-  }
+  };
 
   callbackDateTimePicker = dateTime => {
     this.setState({ dateTime: dateTime });
+    setBackgroundAccordingToTime(dateTime);
   };
 
   render() {
