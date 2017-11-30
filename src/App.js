@@ -5,16 +5,15 @@ import ShareEvent from "./ContentPages/ShareEvent";
 import ParseEventBase from "./ContentPages/ParseEventBase";
 import EmbedEventButton from "./Footer/EmbedEventButton";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// eslint-disable-next-line
 import ScrollToTop from "./helperfunctions/ScrollToTop";
 
 class App extends Component {
   render() {
-    function ScrollToTop() {
+    function scrollToTop() {
       window.scrollTo(0, 0);
     }
     return (
-      <Router onUpdate={ScrollToTop}>
+      <Router onUpdate={scrollToTop}>
         <div id="app">
           <div id="page">
             <ScrollToTop>
