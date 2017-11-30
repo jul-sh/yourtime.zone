@@ -1,81 +1,65 @@
 import React from "react";
 import SetBackgroundAccordingToCurrentVisitorTime from "../helperfunctions/SetBackgroundAccordingToCurrentVisitorTime";
 import NameUserTimezone from "../helperfunctions/NameUserTimezone";
-import ComboDatePicker from "../helperfunctions/combodate";
-import Timepicker from "../helperfunctions/timepicker";
 import { EncodeEvent } from "../helperfunctions/EncodeEvent";
+import DateTimePicker from "../UIComponents/DateTimePicker";
 import * as Cookies from "js-cookie";
 // eslint-disable-next-line
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
 /*  To do: Clean up the implementation of the time + date picker, as it is quite messy */
-const timepickerstyles = {
-  margin: "0 0 0 20px"
-};
+
 class CreateEventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirectToReferrer: false,
-      redirectURL: "/share"
+      redirectToSharePage: false,
+      redirectURL: "/share",
+      userTimeZone: NameUserTimezone(),
+      dateTime: "",
+      eventName: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentWillMount() {
+    SetBackgroundAccordingToCurrentVisitorTime();
+  }
+
   handleSubmit(event) {
-    var timepickerhour = document.getElementById("timepickerhour");
-    var timepickerminute = document.getElementById("timepickerminute");
-    var timepickerampm = document.getElementById("timepickerampm");
-    var hourpicked = timepickerhour.options[timepickerhour.selectedIndex].value;
-    var minutepicked =
-      timepickerminute.options[timepickerminute.selectedIndex].value;
-    var ampm = timepickerampm.options[timepickerampm.selectedIndex].value;
-    hourpicked = parseInt(hourpicked, 10);
-    minutepicked = parseInt(minutepicked, 10);
-    if (ampm === "PM") {
-      hourpicked = hourpicked + 12;
-    }
-    if (hourpicked === 24) {
-      hourpicked = 0;
-    }
-    var EventTime = window.combodatecurrentstate;
-    EventTime.setMilliseconds(0);
-    EventTime.setSeconds(0);
-    EventTime.setMinutes(minutepicked);
-    EventTime.setHours(hourpicked);
-    var EventName = document.getElementById("Eventname").value;
+    var EventTime = this.state.dateTime;
+    var EventName = this.state.eventName;
     //convert to unix seconds time
     var EncodedEventTime = EncodeEvent(EventTime);
     var EventID = EncodedEventTime + EventName;
     Cookies.set("creatorofevent", EventID, { expires: 99 });
-    this.setState({ redirectToReferrer: true });
+    this.setState({ redirectToSharePage: true });
     this.setState({
       redirectURL: "/share/" + EncodedEventTime + "/" + EventName
     });
     event.preventDefault();
   }
+
+  callbackDateTimePicker = dateTime => {
+    this.setState({ dateTime: dateTime });
+  };
+
   render() {
-    SetBackgroundAccordingToCurrentVisitorTime();
-    const UserTimeZone = NameUserTimezone();
-    if (this.state.redirectToReferrer) {
+    if (this.state.redirectToSharePage) {
       return <Redirect to={this.state.redirectURL} push />;
     }
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>When is the event?</h2>
-        <p>In your local time zone ({UserTimeZone}). </p>
-        <ComboDatePicker
-          minDate="2017-06-01"
-          maxDate="2030-12-31"
-          date={new Date()}
-          onChange={function(picker, date) {
-            window.combodatecurrentstate = date;
-          }}
-        />
-        <Timepicker style={timepickerstyles} />
+        <p>In your local time zone ({this.state.userTimeZone}). </p>
+        <DateTimePicker callbackFromParent={this.callbackDateTimePicker} />
         <div style={{ marginTop: 45 }}>
           <h2>What's the name of the event?</h2>
           <input
             type="text"
-            value={this.state.value}
+            value={this.state.eventName}
+            onChange={event => {
+              this.setState({ eventName: event.target.value });
+            }}
             placeholder="Juliette's Webinar"
             id="Eventname"
             name="nameofevent"

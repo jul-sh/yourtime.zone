@@ -18,22 +18,26 @@ class Timepicker extends React.Component {
       ampm: defaultampm
     };
 
-    this.handleHourChange = this.handleHourChange.bind(this);
-    this.handleMinuteChange = this.handleMinuteChange.bind(this);
-    this.handleAMPMChange = this.handleAMPMChange.bind(this);
+    this.props.callbackFromParent(this.state);
   }
 
-  handleHourChange(event) {
-    this.setState({ hour: event.target.value });
-  }
+  handleHourChange = event => {
+    this.setState({ hour: event.target.value }, () => {
+      this.props.callbackFromParent(this.state);
+    });
+  };
 
-  handleMinuteChange(event) {
-    this.setState({ minute: event.target.value });
-  }
+  handleMinuteChange = event => {
+    this.setState({ minute: event.target.value }, () => {
+      this.props.callbackFromParent(this.state);
+    });
+  };
 
-  handleAMPMChange(event) {
-    this.setState({ ampm: event.target.value });
-  }
+  handleAMPMChange = event => {
+    this.setState({ ampm: event.target.value }, () => {
+      this.props.callbackFromParent(this.state);
+    });
+  };
 
   render() {
     return (

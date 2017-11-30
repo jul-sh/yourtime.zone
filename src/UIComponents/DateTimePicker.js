@@ -1,43 +1,64 @@
 import React from "react";
-import NameUserTimezone from "./helperfunctions/NameUserTimezone";
-import ComboDatePicker from "./helperfunctions/combodate";
-import Timepicker from "./helperfunctions/timepicker";
+import ComboDatePicker from "../helperfunctions/combodate";
+import Timepicker from "../helperfunctions/timepicker";
 
 class DateTimePicker extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      dateTime: new Date()
+    };
   }
-  handleSubmit(event) {
-    var timepickerhour = document.getElementById("timepickerhour");
-    var timepickerminute = document.getElementById("timepickerminute");
-    var timepickerampm = document.getElementById("timepickerampm");
-    var hourpicked = timepickerhour.options[timepickerhour.selectedIndex].value;
-    var minutepicked =
-      timepickerminute.options[timepickerminute.selectedIndex].value;
-    var ampm = timepickerampm.options[timepickerampm.selectedIndex].value;
-    hourpicked = parseInt(hourpicked, 10);
-    minutepicked = parseInt(minutepicked, 10);
-    if (ampm === "PM") {
+
+  callbackDatepickeer = date => {
+    let month = date.getMonth();
+    let dateday = date.getDate();
+    let year = date.getFullYear();
+    let dateTime = this.state.dateTime;
+    dateTime.setDate(dateday);
+    dateTime.setMonth(month);
+    dateTime.setFullYear(year);
+    this.props.callbackFromParent(dateTime);
+    this.setState({ dateTime: dateTime });
+  };
+
+  callbackTimepickeer = time => {
+    var hourpicked = parseInt(time.hour, 10);
+    const minutepicked = parseInt(time.minute, 10);
+    if (time.ampm === "PM") {
       hourpicked = hourpicked + 12;
     }
     if (hourpicked === 24) {
       hourpicked = 0;
     }
-    event.preventDefault();
-  }
+    var dateTime = this.state.dateTime;
+    dateTime.setMilliseconds(0);
+    dateTime.setSeconds(0);
+    dateTime.setMinutes(minutepicked);
+    dateTime.setHours(hourpicked);
+    this.props.callbackFromParent(dateTime);
+    this.setState({ dateTime: dateTime });
+  };
+
   render() {
+    const timepickerstyles = {
+      margin: "0 0 0 20px"
+    };
+
     return (
       <div>
         <ComboDatePicker
           minDate="2017-06-01"
           maxDate="2030-12-31"
-          date={new Date()}
-          onChange={function(picker, date) {
-            window.combodatecurrentstate = date;
+          date={this.state.dateTime}
+          onChange={(picker, date) => {
+            this.callbackDatepickeer(date);
           }}
         />
-        <Timepicker style={timepickerstyles} />
+        <Timepicker
+          callbackFromParent={this.callbackTimepickeer}
+          style={timepickerstyles}
+        />
       </div>
     );
   }
