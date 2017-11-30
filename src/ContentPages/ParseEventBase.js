@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ResponsiveBr from "react-responsivebr";
 
-import { setBackgroundAccordingToTime } from "../helperfunctions/setBackground";
-import encodedTimeToLocalTime from "../helperfunctions/encodedTimeToLocalTime";
+import { setBackgroundAccordingToTime } from "~/helperfunctions/setBackground";
+import encodedTimeToLocalTime from "~/helperfunctions/encodedTimeToLocalTime";
 
 class ParseeventBase extends React.Component {
   constructor(props) {

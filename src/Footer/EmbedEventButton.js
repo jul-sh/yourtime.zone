@@ -4,6 +4,18 @@ import * as Cookies from "js-cookie";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class EmbedEventButton extends React.Component {
+  state = {
+    open: false
+  };
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
   render() {
     //check if visitor is also creator of this event
     var EventName = "";
@@ -21,24 +33,8 @@ class EmbedEventButton extends React.Component {
     var referrer = document.referrer;
 
     //if the current path starts with share
-    if (this.props.location.pathname.substring(0, 6) === "/share") {
-      return (
-        <span>
-          <a
-            href="https://app.mailerlite.com/webforms/submit/q7k9r7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bottomareabutton btn-class"
-            id="embedbutton"
-          >
-            Embed the event
-          </a>
-        </span>
-      );
-    }
-
-    //if the visitor is also creator of the event
     if (
+      this.props.location.pathname.substring(0, 6) === "/share" ||
       creatorcookie === EventID ||
       referrer.indexOf(CurrentHost + "/share/") >= 0
     ) {
