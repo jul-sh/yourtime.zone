@@ -57,7 +57,7 @@ body {
 h1 {
   font-size: 56px;
   font-weight: bold;
-  margin: 20px;
+  margin: 10px 20px;
   padding: 0;
   line-height: 1.5em;
   font-family: "customserif", "Palatino Linotype", Palatino, Palladio,
@@ -184,7 +184,7 @@ form input[type="text"] {
 
 .bodytext {
   text-align: left;
-  max-width: 640px;
+  max-width: 530px;
   margin: 0 auto;
 }
 
@@ -311,6 +311,7 @@ form input[type="text"] {
   h1 {
     font-size: 44px;
     line-height: 1.3em;
+    margin: 14px 20px;
   }
 
   h2 {
