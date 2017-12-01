@@ -233,8 +233,6 @@ form input[type="text"] {
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   cursor: pointer;
   text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 
 .btn-class.bigbutton {
