@@ -1,70 +1,68 @@
-import React from "react";
-import * as Clipboard from "clipboard";
-// eslint-disable-next-line
-import { BrowserRouter as Router, Link } from "react-router-dom";
-
-import { setBackgroundAccordingToTime } from "~/helperfunctions/setBackground";
-import encodedTimeToLocalTime from "~/helperfunctions/encodedTimeToLocalTime";
+import React from 'react'
+import * as Clipboard from 'clipboard'
+import { Link } from 'react-router-dom'
+import { setBackgroundAccordingToTime } from '~/helperfunctions/setBackground'
+import encodedTimeToLocalTime from '~/helperfunctions/encodedTimeToLocalTime'
 
 class ShareEvent extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      name: "Nicely done.",
+      name: 'Nicely done.',
       eventName: this.props.match.params.name,
       eventTime: this.props.match.params.time
-    };
+    }
   }
 
   componentWillMount() {
     //convert event into local time & set background accordingly
-    const event = encodedTimeToLocalTime(this.props.match.params.time);
-    console.log(event);
-    setBackgroundAccordingToTime(event.inLocalTime);
+    const event = encodedTimeToLocalTime(this.props.match.params.time)
+    console.log(event)
+    setBackgroundAccordingToTime(event.inLocalTime)
   }
 
   componentDidMount() {
-    var clipboard = new Clipboard("#copy-button");
-    clipboard.on("success", e => {
-      this.setState({ name: "Copied!" });
-      e.clearSelection();
-    });
-    clipboard.on("error", e => {
-      this.setState({ name: "Please copy manually." });
-    });
+    var clipboard = new Clipboard('#copy-button')
+    clipboard.on('success', e => {
+      this.setState({ name: 'Copied!' })
+      e.clearSelection()
+    })
+    clipboard.on('error', e => {
+      this.setState({ name: 'Please copy manually.' })
+    })
   }
 
   copyUrlToClipboard(event) {
-    event.target.select();
-    event.preventDefault();
+    event.target.select()
+    event.preventDefault()
   }
 
   generatePath = () => {
     if (!this.state.eventTime) {
-      return "Error, please create another event.";
+      return 'Error, please create another event.'
     }
     if (!this.state.eventName) {
-      const path = "/p/" + this.state.eventTime;
-      return path;
+      const path = '/p/' + this.state.eventTime
+      return path
     }
-    const path = "/p/" + this.state.eventTime + "/" + this.state.eventName;
-    return path;
-  };
+    const path = '/p/' + this.state.eventTime + '/' + this.state.eventName
+    return path
+  }
 
   generateURL = () => {
     if (!this.state.eventTime) {
-      return "Error, please create another event.";
+      return 'Error, please create another event.'
     }
-    var path = this.generatePath();
-    const CurrentDomain = window.location.origin;
-    var EventURL = CurrentDomain + path;
-    return EventURL;
-  };
+    var path = this.generatePath()
+    const CurrentDomain = window.location.origin
+    var EventURL = CurrentDomain + path
+    return EventURL
+  }
 
   render() {
     return (
       <div>
-        <h1 style={{ marginTop: "0" }}>{this.state.name}</h1>
+        <h1 style={{ marginTop: '0' }}>{this.state.name}</h1>
         <p>
           Now, simply share the link below.<br className="optionalbr" />It will
           display <Link to={this.generatePath()}>the event</Link> in the local
@@ -94,8 +92,8 @@ class ShareEvent extends React.Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default ShareEvent;
+export default ShareEvent

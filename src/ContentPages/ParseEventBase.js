@@ -1,32 +1,29 @@
-import React from "react";
-// eslint-disable-next-line
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import ResponsiveBr from "react-responsivebr";
-
-import { setBackgroundAccordingToTime } from "~/helperfunctions/setBackground";
-import encodedTimeToLocalTime from "~/helperfunctions/encodedTimeToLocalTime";
+import React from 'react'
+import ResponsiveBr from 'react-responsivebr'
+import { setBackgroundAccordingToTime } from '~/helperfunctions/setBackground'
+import encodedTimeToLocalTime from '~/helperfunctions/encodedTimeToLocalTime'
 
 class ParseeventBase extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      eventName: "",
+      eventName: '',
       eventTime: {}
-    };
+    }
   }
 
   componentWillMount() {
     //if there is a name specified, use it.
     if (this.props.match.params.name) {
-      this.setState({ eventName: '"' + this.props.match.params.name + '"' });
+      this.setState({ eventName: '"' + this.props.match.params.name + '"' })
     } else {
-      this.setState({ eventName: "the event" });
+      this.setState({ eventName: 'the event' })
     }
 
     //convert event into local time
-    const event = encodedTimeToLocalTime(this.props.match.params.time);
-    this.setState({ eventTime: event });
-    setBackgroundAccordingToTime(event.inLocalTime);
+    const event = encodedTimeToLocalTime(this.props.match.params.time)
+    this.setState({ eventTime: event })
+    setBackgroundAccordingToTime(event.inLocalTime)
   }
 
   render() {
@@ -38,8 +35,8 @@ class ParseeventBase extends React.Component {
         <br />
         <h1 id="localtime">{this.state.eventTime.inHumanLanguage}</h1>
       </span>
-    );
+    )
   }
 }
 
-export default ParseeventBase;
+export default ParseeventBase

@@ -1,42 +1,40 @@
-import React from "react";
-import * as Cookies from "js-cookie";
-//eslint-disable-next-line
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React from 'react'
+import * as Cookies from 'js-cookie'
 
 class EmbedEventButton extends React.Component {
   state = {
     open: false
-  };
+  }
 
   onOpenModal = () => {
-    this.setState({ open: true });
-  };
+    this.setState({ open: true })
+  }
 
   onCloseModal = () => {
-    this.setState({ open: false });
-  };
+    this.setState({ open: false })
+  }
 
   render() {
     //check if visitor is also creator of this event
-    var EventName = "";
+    var EventName = ''
     if (this.props.match.params.name) {
-      EventName = '"' + this.props.match.params.name + '"';
+      EventName = '"' + this.props.match.params.name + '"'
     }
 
-    var EventUnixMinutesB36 = "";
+    var EventUnixMinutesB36 = ''
     if (this.props.match.params.time) {
-      EventUnixMinutesB36 = this.props.match.params.time;
+      EventUnixMinutesB36 = this.props.match.params.time
     }
-    var EventID = EventUnixMinutesB36 + EventName;
-    var creatorcookie = Cookies.get("creatorofevent");
-    var CurrentHost = window.location.host;
-    var referrer = document.referrer;
+    var EventID = EventUnixMinutesB36 + EventName
+    var creatorcookie = Cookies.get('creatorofevent')
+    var CurrentHost = window.location.host
+    var referrer = document.referrer
 
     //if the current path starts with share
     if (
-      this.props.location.pathname.substring(0, 6) === "/share" ||
+      this.props.location.pathname.substring(0, 6) === '/share' ||
       creatorcookie === EventID ||
-      referrer.indexOf(CurrentHost + "/share/") >= 0
+      referrer.indexOf(CurrentHost + '/share/') >= 0
     ) {
       return (
         <span>
@@ -50,7 +48,7 @@ class EmbedEventButton extends React.Component {
             Embed the event
           </a>
         </span>
-      );
+      )
     }
 
     return (
@@ -58,8 +56,8 @@ class EmbedEventButton extends React.Component {
       <a href="/" className="bottomareabutton btn-class">
         About yourtime.zone
       </a>
-    );
+    )
   }
 }
 
-export default EmbedEventButton;
+export default EmbedEventButton

@@ -1,54 +1,53 @@
-import React from "react";
+import React from 'react'
 import {
   setBackgroundAccordingToCurrentVisitorTime,
   setBackgroundAccordingToTime
-} from "~/helperfunctions/setBackground";
-import NameUserTimezone from "~/helperfunctions/nameUserTimezone";
-import { EncodeEvent } from "~/helperfunctions/encodeEvent";
-import DateTimePicker from "~/UIComponents/DateTimePicker";
-import * as Cookies from "js-cookie";
-// eslint-disable-next-line
-import { BrowserRouter as Router, Redirect } from "react-router-dom";
+} from '~/helperfunctions/setBackground'
+import NameUserTimezone from '~/helperfunctions/nameUserTimezone'
+import { EncodeEvent } from '~/helperfunctions/encodeEvent'
+import DateTimePicker from '~/UIComponents/DateTimePicker'
+import * as Cookies from 'js-cookie'
+import { Redirect } from 'react-router-dom'
 /*  To do: Clean up the implementation of the time + date picker, as it is quite messy */
 
 class CreateEventForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       redirectToSharePage: false,
-      redirectURL: "/share",
+      redirectURL: '/share',
       userTimeZone: NameUserTimezone(),
-      dateTime: "",
-      eventName: ""
-    };
+      dateTime: '',
+      eventName: ''
+    }
   }
 
   componentWillMount() {
-    setBackgroundAccordingToCurrentVisitorTime();
+    setBackgroundAccordingToCurrentVisitorTime()
   }
 
   handleSubmit = event => {
-    var EventTime = this.state.dateTime;
-    var EventName = this.state.eventName;
+    var EventTime = this.state.dateTime
+    var EventName = this.state.eventName
     //convert to unix seconds time
-    var EncodedEventTime = EncodeEvent(EventTime);
-    var EventID = EncodedEventTime + EventName;
-    Cookies.set("creatorofevent", EventID, { expires: 99 });
-    this.setState({ redirectToSharePage: true });
+    var EncodedEventTime = EncodeEvent(EventTime)
+    var EventID = EncodedEventTime + EventName
+    Cookies.set('creatorofevent', EventID, { expires: 99 })
+    this.setState({ redirectToSharePage: true })
     this.setState({
-      redirectURL: "/share/" + EncodedEventTime + "/" + EventName
-    });
-    event.preventDefault();
-  };
+      redirectURL: '/share/' + EncodedEventTime + '/' + EventName
+    })
+    event.preventDefault()
+  }
 
   callbackDateTimePicker = dateTime => {
-    this.setState({ dateTime: dateTime });
-    setBackgroundAccordingToTime(dateTime);
-  };
+    this.setState({ dateTime: dateTime })
+    setBackgroundAccordingToTime(dateTime)
+  }
 
   render() {
     if (this.state.redirectToSharePage) {
-      return <Redirect to={this.state.redirectURL} push />;
+      return <Redirect to={this.state.redirectURL} push />
     }
     return (
       <form onSubmit={this.handleSubmit}>
@@ -61,7 +60,7 @@ class CreateEventForm extends React.Component {
             type="text"
             value={this.state.eventName}
             onChange={event => {
-              this.setState({ eventName: event.target.value });
+              this.setState({ eventName: event.target.value })
             }}
             placeholder="Juliette's Webinar"
             id="Eventname"
@@ -76,7 +75,7 @@ class CreateEventForm extends React.Component {
           />
         </div>
       </form>
-    );
+    )
   }
 }
-export default CreateEventForm;
+export default CreateEventForm
