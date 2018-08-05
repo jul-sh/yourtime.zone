@@ -22,10 +22,10 @@ class DateTimePicker extends React.Component {
     this.setState({ dateTime: dateTime });
   };
 
-  callbackTimepickeer = time => {
-    var hourpicked = parseInt(time.hour, 10);
-    const minutepicked = parseInt(time.minute, 10);
-    if (time.ampm === "PM") {
+  callbackTimepickeer = encodedTime => {
+    var hourpicked = parseInt(encodedTime.hour, 10);
+    const minutepicked = parseInt(encodedTime.minute, 10);
+    if (encodedTime.ampm === "PM") {
       hourpicked = hourpicked + 12;
     }
     if (hourpicked === 24) {

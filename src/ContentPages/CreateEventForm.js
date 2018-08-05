@@ -1,70 +1,58 @@
 import React from 'react'
+import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
 import {
-  setBackgroundAccordingToCurrentVisitorTime,
-  setBackgroundAccordingToTime
-} from '~/helperfunctions/setBackground'
-import NameUserTimezone from '~/helperfunctions/nameUserTimezone'
-import { EncodeEvent } from '~/helperfunctions/encodeEvent'
+  getUserTimezone,
+  getTimezoneName
+} from '~/helperfunctions/getUserTimezone'
+import { timestampToParameter } from '~/helperfunctions/timeParameter'
 import DateTimePicker from '~/UIComponents/DateTimePicker'
-import { Redirect } from 'react-router-dom'
-/*  To do: Clean up the implementation of the time + date picker, as it is quite messy */
+import { withRouter } from 'react-router-dom'
 
 class CreateEventForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      redirectToSharePage: false,
-      redirectURL: '/share',
-      userTimeZone: NameUserTimezone(),
-      dateTime: '',
-      eventName: ''
-    }
+  state = {
+    userTimeZoneName: 'New York',
+    eventTimestamp: '',
+    eventName: ''
   }
 
-  componentWillMount() {
-    setBackgroundAccordingToCurrentVisitorTime()
+  componentDidMount() {
+    this.setState({ userTimeZoneName: getTimezoneName(getUserTimezone()) })
   }
 
   handleSubmit = event => {
-    var EventTime = this.state.dateTime
-    var EventName = this.state.eventName
-    //convert to unix seconds time
-    var EncodedEventTime = EncodeEvent(EventTime)
-    this.setState({ redirectToSharePage: true })
-    this.setState({
-      redirectURL: '/share/' + EncodedEventTime + '/' + EventName
-    })
     event.preventDefault()
+
+    const { eventTimestamp, eventName } = this.state
+    this.props.history.push({
+      pathname: `/share/${timestampToParameter(eventTimestamp)}/${eventName}`
+    })
   }
 
-  callbackDateTimePicker = dateTime => {
-    this.setState({ dateTime: dateTime })
-    setBackgroundAccordingToTime(dateTime)
+  onDatePickerChange = timeAsString => {
+    const encodedTime = new Date(timeAsString)
+    this.setState({ eventTimestamp: encodedTime.valueOf() })
   }
+
+  onEventNameChange = event => this.setState({ eventName: event.target.value })
 
   render() {
-    if (this.state.redirectToSharePage) {
-      return <Redirect to={this.state.redirectURL} push />
-    }
+    setBackgroundByTimestamp(this.state.eventTimestamp || new Date())
+
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>When is the event?</h2>
         <p>
-          In your local time zone ({this.state.userTimeZone}
+          In your local timezone ({this.state.userTimeZoneName}
           ).{' '}
         </p>
-        <DateTimePicker callbackFromParent={this.callbackDateTimePicker} />
+        <DateTimePicker callbackFromParent={this.onDatePickerChange} />
         <div style={{ marginTop: 45 }}>
           <h2>What's the name of the event?</h2>
           <input
             type="text"
             value={this.state.eventName}
-            onChange={event => {
-              this.setState({ eventName: event.target.value })
-            }}
+            onChange={this.onEventNameChange}
             placeholder="Juliette's Webinar"
-            id="Eventname"
-            name="nameofevent"
           />
         </div>
         <div className="submitbuttondiv" style={{ marginTop: 15 }}>
@@ -78,4 +66,4 @@ class CreateEventForm extends React.Component {
     )
   }
 }
-export default CreateEventForm
+export default withRouter(CreateEventForm)

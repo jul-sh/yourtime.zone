@@ -5,11 +5,11 @@
   "dependencies": {
     "babel-plugin-emotion": "^9.2.6",
     "babel-plugin-import": "^1.8.0",
-    "clipboard": "^2.0.1",
     "emotion": "^9.2.6",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
     "react": "^16.4.2",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.4.2",
     "react-emotion": "^9.2.6",
     "react-responsivebr": "^1.0.0",

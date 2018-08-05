@@ -1,42 +1,32 @@
 import React from 'react'
 import ResponsiveBr from 'react-responsivebr'
-import { setBackgroundAccordingToTime } from '~/helperfunctions/setBackground'
-import encodedTimeToLocalTime from '~/helperfunctions/encodedTimeToLocalTime'
+import {
+  getUserTimezone,
+  getTimezoneName
+} from '~/helperfunctions/getUserTimezone'
+import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
+import { parameterToTimestamp } from '~/helperfunctions/timeParameter'
+import timestampToWords from '~/helperfunctions/timestampToWords'
 
-class ParseeventBase extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      eventName: '',
-      eventTime: {}
-    }
-  }
+const ParseeventBase = props => {
+  const userTimezone = getUserTimezone()
+  const { name, encodedTime } = props.match.params
+  const timestamp = parameterToTimestamp(encodedTime)
+  const eventTime = timestampToWords(timestamp)
+  const eventName = name ? `"${name}"` : 'the event'
 
-  componentWillMount() {
-    //if there is a name specified, use it.
-    if (this.props.match.params.name) {
-      this.setState({ eventName: '"' + this.props.match.params.name + '"' })
-    } else {
-      this.setState({ eventName: 'the event' })
-    }
+  setBackgroundByTimestamp(timestamp)
 
-    //convert event into local time
-    const event = encodedTimeToLocalTime(this.props.match.params.time)
-    this.setState({ eventTime: event })
-    setBackgroundAccordingToTime(event.inLocalTime)
-  }
-
-  render() {
-    return (
-      <span>
-        In your timezone ({this.state.eventTime.userTimeZone}),<ResponsiveBr maxWidth="800" />
-        {this.state.eventName} {this.state.eventTime.verb}
-        {this.state.eventTime.preposition}
-        <br />
-        <h1 id="localtime">{this.state.eventTime.inHumanLanguage}</h1>
-      </span>
-    )
-  }
+  return (
+    <>
+      In your time zone ({getTimezoneName(userTimezone)}
+      ),
+      <ResponsiveBr maxWidth="800" />
+      {`${eventName} ${eventTime.verb} ${eventTime.preposition}`}
+      <br />
+      <h1 id="localtime">{eventTime.inWords}</h1>
+    </>
+  )
 }
 
 export default ParseeventBase

@@ -1,97 +1,62 @@
 import React from 'react'
-import * as Clipboard from 'clipboard'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Link } from 'react-router-dom'
-import { setBackgroundAccordingToTime } from '~/helperfunctions/setBackground'
-import encodedTimeToLocalTime from '~/helperfunctions/encodedTimeToLocalTime'
+import ResponsiveBr from 'react-responsivebr'
+import { parameterToTimestamp } from '~/helperfunctions/timeParameter'
+import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
 
 class ShareEvent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: 'Nicely done.',
-      eventName: this.props.match.params.name,
-      eventTime: this.props.match.params.time
-    }
+  state = {
+    isCopied: false
   }
 
-  componentWillMount() {
-    //convert event into local time & set background accordingly
-    const event = encodedTimeToLocalTime(this.props.match.params.time)
-    console.log(event)
-    setBackgroundAccordingToTime(event.inLocalTime)
-  }
+  onCopy = () => this.setState({ isCopied: true })
 
-  componentDidMount() {
-    var clipboard = new Clipboard('#copy-button')
-    clipboard.on('success', e => {
-      this.setState({ name: 'Copied!' })
-      e.clearSelection()
-    })
-    clipboard.on('error', e => {
-      this.setState({ name: 'Please copy manually.' })
-    })
-  }
-
-  copyUrlToClipboard(event) {
+  handleInputClick(event) {
     event.target.select()
     event.preventDefault()
   }
 
-  generatePath = () => {
-    if (!this.state.eventTime) {
-      return 'Error, please create another event.'
-    }
-    if (!this.state.eventName) {
-      const path = '/p/' + this.state.eventTime
-      return path
-    }
-    const path = '/p/' + this.state.eventTime + '/' + this.state.eventName
-    return path
-  }
-
-  generateURL = () => {
-    if (!this.state.eventTime) {
-      return 'Error, please create another event.'
-    }
-    var path = this.generatePath()
-    const CurrentDomain = window.location.origin
-    var EventURL = CurrentDomain + path
-    return EventURL
-  }
-
   render() {
+    const { encodedTime, name } = this.props.match.params
+    const path = `/p/${encodedTime}${name ? '/' + name : ''}`
+    const url = window.location.origin + path
+    setBackgroundByTimestamp(parameterToTimestamp(encodedTime))
+
     return (
-      <div>
-        <h1 style={{ marginTop: '0' }}>{this.state.name}</h1>
+      <>
+        <h1 style={{ marginTop: '0' }}>
+          {this.state.isCopied ? 'Copied!' : 'Nicely done.'}
+        </h1>
         <p>
-          Now, simply share the link below.<br className="optionalbr" />It will
-          display <Link to={this.generatePath()}>the event</Link> in the local
-          time of whoever visits it.
+          Now, simply share the link below.
+          <ResponsiveBr minWidth="500" />
+          It will display <Link to={path}>the event</Link> in the local time of
+          whoever visits it.
         </p>
         <form>
           <div className="input-group">
             <input
-              onClick={this.copyUrlToClipboard}
+              onClick={this.handleInputClick}
               type="text"
               className="form-control shareurl"
-              defaultValue={this.generateURL()}
+              value={url}
               readOnly
-              id="copy-input"
             />
             <span className="input-group-btn">
-              <button
-                className="btn btn-default"
-                type="button"
-                id="copy-button"
-                data-clipboard-target="#copy-input"
-                name="Copy to Clipboard"
-              >
-                Copy
-              </button>
+              <CopyToClipboard text={url} onCopy={this.onCopy}>
+                <button
+                  className="btn btn-default copy-button"
+                  type="button"
+                  data-clipboard-target="#copy-input"
+                >
+                  Copy
+                </button>
+              </CopyToClipboard>
             </span>
           </div>
         </form>
-      </div>
+      </>
     )
   }
 }
