@@ -3,7 +3,7 @@ import AboutYourTimeZone from './ContentPages/AboutYourTimeZone'
 import CreateEventForm from './ContentPages/CreateEventForm'
 import ShareEvent from './ContentPages/ShareEvent'
 import ParseEventBase from './ContentPages/ParseEventBase'
-import EmbedEventButton from './Footer/EmbedEventButton'
+import FooterButton from './Footer/FooterButton'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ScrollToTop from './helperfunctions/ScrollToTop'
 
@@ -25,8 +25,7 @@ class App extends Component {
             </ScrollToTop>
           </div>
           <div id="bottomarea">
-            <Route path="/share/" component={EmbedEventButton} />
-            <Route path="/p/:time?/:name?/" component={EmbedEventButton} />
+            <Route path="/p/:time?/:name?/" component={FooterButton} />
           </div>
         </div>
       </Router>

@@ -6,7 +6,6 @@ import {
 import NameUserTimezone from '~/helperfunctions/nameUserTimezone'
 import { EncodeEvent } from '~/helperfunctions/encodeEvent'
 import DateTimePicker from '~/UIComponents/DateTimePicker'
-import * as Cookies from 'js-cookie'
 import { Redirect } from 'react-router-dom'
 /*  To do: Clean up the implementation of the time + date picker, as it is quite messy */
 
@@ -31,8 +30,6 @@ class CreateEventForm extends React.Component {
     var EventName = this.state.eventName
     //convert to unix seconds time
     var EncodedEventTime = EncodeEvent(EventTime)
-    var EventID = EncodedEventTime + EventName
-    Cookies.set('creatorofevent', EventID, { expires: 99 })
     this.setState({ redirectToSharePage: true })
     this.setState({
       redirectURL: '/share/' + EncodedEventTime + '/' + EventName
@@ -52,7 +49,10 @@ class CreateEventForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>When is the event?</h2>
-        <p>In your local time zone ({this.state.userTimeZone}). </p>
+        <p>
+          In your local time zone ({this.state.userTimeZone}
+          ).{' '}
+        </p>
         <DateTimePicker callbackFromParent={this.callbackDateTimePicker} />
         <div style={{ marginTop: 45 }}>
           <h2>What's the name of the event?</h2>
