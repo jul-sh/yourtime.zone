@@ -28,14 +28,14 @@ class App extends Component {
                   component={ShareEvent}
                 />
                 <Route
-                  path="/p/:encodedTime?/:name?/"
+                  path="/e/:encodedTime?/:name?/"
                   component={ParseEventBase}
                 />
               </Switch>
             </ResetScrollPosition>
           </div>
           <div id="bottomarea">
-            <Route path="/p/:encodedTime?/:name?/" component={FooterButton} />
+            <Route path="/e/:encodedTime?/:name?/" component={FooterButton} />
           </div>
         </div>
       </Router>

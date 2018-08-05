@@ -19,7 +19,7 @@ class ShareEvent extends React.Component {
 
   render() {
     const { encodedTime, name } = this.props.match.params
-    const path = `/p/${encodedTime}${name ? '/' + name : ''}`
+    const path = `/e/${encodedTime}${name ? '/' + name : ''}`
     const url = window.location.origin + path
     setBackgroundByTimestamp(parameterToTimestamp(encodedTime))
 
