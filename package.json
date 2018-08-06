@@ -7,7 +7,7 @@
     "babel-plugin-import": "^1.8.0",
     "emotion": "^9.2.6",
     "jstz": "^2.0.0",
-    "moment": "^2.22.2",
+    "moment-mini": "^2.22.1",
     "preact": "^8.3.0",
     "preact-compat": "^3.18.2",
     "react": "^16.4.2",

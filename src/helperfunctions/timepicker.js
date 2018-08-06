@@ -1,43 +1,43 @@
-import React from "react";
-import moment from "moment";
+import React from 'react'
+import moment from 'moment-mini'
 
 class Timepicker extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     var defaulthour = moment()
-      .add(1, "h")
-      .format("h")
-      .toString();
-    var defaultampm = moment().format("A");
-    var defaultminute = "0";
+      .add(1, 'h')
+      .format('h')
+      .toString()
+    var defaultampm = moment().format('A')
+    var defaultminute = '0'
 
     this.state = {
       hour: defaulthour,
       minute: defaultminute,
       ampm: defaultampm
-    };
+    }
 
-    this.props.callbackFromParent(this.state);
+    this.props.callbackFromParent(this.state)
   }
 
   handleHourChange = event => {
     this.setState({ hour: event.target.value }, () => {
-      this.props.callbackFromParent(this.state);
-    });
-  };
+      this.props.callbackFromParent(this.state)
+    })
+  }
 
   handleMinuteChange = event => {
     this.setState({ minute: event.target.value }, () => {
-      this.props.callbackFromParent(this.state);
-    });
-  };
+      this.props.callbackFromParent(this.state)
+    })
+  }
 
   handleAMPMChange = event => {
     this.setState({ ampm: event.target.value }, () => {
-      this.props.callbackFromParent(this.state);
-    });
-  };
+      this.props.callbackFromParent(this.state)
+    })
+  }
 
   render() {
     return (
@@ -48,7 +48,7 @@ class Timepicker extends React.Component {
             value={this.state.hour}
             onChange={this.handleHourChange}
             className="hour"
-            style={{ width: "auto" }}
+            style={{ width: 'auto' }}
           >
             <option value={1}>01</option>
             <option value={2}>02</option>
@@ -68,7 +68,7 @@ class Timepicker extends React.Component {
             value={this.state.minute}
             onChange={this.handleMinuteChange}
             className="minute"
-            style={{ width: "auto" }}
+            style={{ width: 'auto' }}
           >
             <option value={0}>00</option>
             <option value={5}>05</option>
@@ -87,7 +87,7 @@ class Timepicker extends React.Component {
             id="timepickerampm"
             value={this.state.ampm}
             className="ampm"
-            style={{ width: "auto" }}
+            style={{ width: 'auto' }}
             onChange={this.handleAMPMChange}
           >
             <option value="AM">AM</option>
@@ -95,8 +95,8 @@ class Timepicker extends React.Component {
           </select>
         </span>
       </span>
-    );
+    )
   }
 }
 
-export default Timepicker;
+export default Timepicker
