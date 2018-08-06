@@ -1,4 +1,4 @@
-import moment from 'moment-timezone'
+import moment from 'moment'
 
 const timestampToWords = timestamp => {
   const eventTime = moment(timestamp)

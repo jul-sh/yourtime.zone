@@ -2,7 +2,7 @@ import React from 'react'
 import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
 import {
   getUserTimezone,
-  getTimezoneName
+  formatTimezoneName
 } from '~/helperfunctions/getUserTimezone'
 import { timestampToParameter } from '~/helperfunctions/timeParameter'
 import DateTimePicker from '~/UIComponents/DateTimePicker'
@@ -16,7 +16,7 @@ class CreateEventForm extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ userTimeZoneName: getTimezoneName(getUserTimezone()) })
+    this.setState({ userTimeZoneName: formatTimezoneName(getUserTimezone()) })
   }
 
   handleSubmit = event => {

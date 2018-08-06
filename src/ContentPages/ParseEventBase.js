@@ -2,7 +2,7 @@ import React from 'react'
 import ResponsiveBr from 'react-responsivebr'
 import {
   getUserTimezone,
-  getTimezoneName
+  formatTimezoneName
 } from '~/helperfunctions/getUserTimezone'
 import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
 import { parameterToTimestamp } from '~/helperfunctions/timeParameter'
@@ -19,7 +19,7 @@ const ParseeventBase = props => {
 
   return (
     <>
-      In your time zone ({getTimezoneName(userTimezone)}
+      In your time zone ({formatTimezoneName(userTimezone)}
       ),
       <ResponsiveBr maxWidth="800" />
       {`${eventName} ${eventTime.verb} ${eventTime.preposition}`}

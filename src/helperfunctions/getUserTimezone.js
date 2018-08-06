@@ -1,8 +1,8 @@
-import moment from 'moment-timezone'
+import jstz from 'jstz'
 
-export const getUserTimezone = () => moment.tz.guess()
+export const getUserTimezone = () => jstz.determine().name()
 
-export const getTimezoneName = timezone => {
+export const formatTimezoneName = timezone => {
   const timezoneName = timezone.replace(/_/g, ' ')
   if (timezoneName.indexOf('/') > -1) {
     //if usertimezonedisplay is like 'europe/berlin', display 'berlin' instead
