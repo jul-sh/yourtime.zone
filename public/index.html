@@ -30,6 +30,25 @@
   <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
   <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#f5ce7e">
   <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="/customserif.woff2" as="font" type="font/woff2">
+  <link rel="preload" href="/customsans.woff2" as="font" type="font/woff2">
+  <style>
+    @font-face {
+      font-family: 'customserif';
+      src: url('/customserif.woff2') format('woff2');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'customsans';
+      src: url('/customsans.woff2') format('woff2');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 </head>
 
 <body id="background">
@@ -37,11 +56,11 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <!--
-      
+
       To use background fade set thisas background instead of body and set the opacity of #root to .999
 
       <div id="background"></div>
-    
+
     -->
   <div id="root"></div>
   <!--

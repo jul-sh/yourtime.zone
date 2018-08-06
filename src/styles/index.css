@@ -1,17 +1,3 @@
-@font-face {
-  font-family: 'customserif';
-  src: url('equity-bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'customsans';
-  src: url('concourse-reg.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-}
-
 body,
 html,
 #root,
