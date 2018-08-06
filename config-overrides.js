@@ -1,10 +1,12 @@
-const { injectBabelPlugin } = require("react-app-rewired");
+const { injectBabelPlugin } = require('react-app-rewired')
+const rewirePreact = require('react-app-rewire-preact')
 
 module.exports = function override(config, env) {
-  config = injectBabelPlugin("emotion", config);
+  config = injectBabelPlugin('emotion', config)
   config = injectBabelPlugin(
-    ["babel-plugin-root-import", { rootPathSuffix: "src/" }],
+    ['babel-plugin-root-import', { rootPathSuffix: 'src/' }],
     config
-  );
-  return config;
-};
+  )
+  config = rewirePreact(config, env)
+  return config
+}
