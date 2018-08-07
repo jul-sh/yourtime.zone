@@ -1,15 +1,13 @@
 import React from 'react'
-import moment from 'moment-mini'
+import format from 'date-fns/format'
 
 class Timepicker extends React.Component {
   constructor(props) {
     super(props)
 
-    var defaulthour = moment()
-      .add(1, 'h')
-      .format('h')
-      .toString()
-    var defaultampm = moment().format('A')
+    const now = new Date()
+    var defaulthour = format(now, 'h')
+    var defaultampm = format(now, 'A')
     var defaultminute = '0'
 
     this.state = {
