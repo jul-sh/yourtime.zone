@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import AboutYourTimeZone from './ContentPages/AboutYourTimeZone'
-import CreateEventForm from './ContentPages/CreateEventForm'
-import ShareEvent from './ContentPages/ShareEvent'
-import ParseEventBase from './ContentPages/ParseEventBase'
-import FooterButton from './Footer/FooterButton'
+import PageAbout from '~/components/PageAbout'
+import PageCreateEvent from '~/components/PageCreateEvent'
+import PageShareEvent from '~/components/PageShareEvent'
+import PageEvent from '~/components/PageEvent'
+import FooterButton from '~/components/FooterButton'
 import {
   withRouter,
   BrowserRouter as Router,
@@ -21,16 +21,13 @@ class App extends Component {
           <div id="page">
             <ResetScrollPosition>
               <Switch>
-                <Route exact path="/" component={AboutYourTimeZone} />
-                <Route path="/new/:timezone?/" component={CreateEventForm} />
+                <Route exact path="/" component={PageAbout} />
+                <Route path="/new/:timezone?/" component={PageCreateEvent} />
                 <Route
                   path="/share/:encodedTime?/:name?/"
-                  component={ShareEvent}
+                  component={PageShareEvent}
                 />
-                <Route
-                  path="/e/:encodedTime?/:name?/"
-                  component={ParseEventBase}
-                />
+                <Route path="/e/:encodedTime?/:name?/" component={PageEvent} />
               </Switch>
             </ResetScrollPosition>
           </div>

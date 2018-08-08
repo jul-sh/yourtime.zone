@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
-import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
+import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 
-const AboutYourTimeZone = props => {
+const PageAbout = props => {
   setBackgroundByTimestamp(new Date())
   return (
     <span>
@@ -25,4 +25,4 @@ const AboutYourTimeZone = props => {
   )
 }
 
-export default AboutYourTimeZone
+export default PageAbout

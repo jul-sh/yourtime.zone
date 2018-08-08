@@ -1,14 +1,11 @@
 import React from 'react'
-import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
-import {
-  getUserTimezone,
-  formatTimezoneName
-} from '~/helperfunctions/getUserTimezone'
-import { timestampToParameter } from '~/helperfunctions/timeParameter'
-import DateTimePicker from '~/UIComponents/DateTimePicker'
+import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
+import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
+import { timestampToParameter } from '~/helpers/timeParameter'
+import DateTimePicker from '~/components/DateTimePicker'
 import { withRouter } from 'react-router-dom'
 
-class CreateEventForm extends React.Component {
+class PageCreateEvent extends React.Component {
   state = {
     userTimeZoneName: 'New York',
     eventTimestamp: '',
@@ -66,4 +63,4 @@ class CreateEventForm extends React.Component {
     )
   }
 }
-export default withRouter(CreateEventForm)
+export default withRouter(PageCreateEvent)

@@ -1,14 +1,11 @@
 import React from 'react'
 import ResponsiveBr from 'react-responsivebr'
-import {
-  getUserTimezone,
-  formatTimezoneName
-} from '~/helperfunctions/getUserTimezone'
-import setBackgroundByTimestamp from '~/helperfunctions/setBackgroundByTimestamp'
-import { parameterToTimestamp } from '~/helperfunctions/timeParameter'
-import timestampToWords from '~/helperfunctions/timestampToWords'
+import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
+import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
+import { parameterToTimestamp } from '~/helpers/timeParameter'
+import timestampToWords from '~/helpers/timestampToWords'
 
-const ParseeventBase = props => {
+const PageEvent = props => {
   const userTimezone = getUserTimezone()
   const { name, encodedTime } = props.match.params
   const timestamp = parameterToTimestamp(encodedTime)
@@ -29,4 +26,4 @@ const ParseeventBase = props => {
   )
 }
 
-export default ParseeventBase
+export default PageEvent
