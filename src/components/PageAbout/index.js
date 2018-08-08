@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
+import LayoutCentered from '~/components/LayoutCentered'
 import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 
 const PageAbout = props => {
   setBackgroundByTimestamp(new Date())
   return (
-    <span>
+    <LayoutCentered>
       <h1 className="greeting">
         Time Zones are hard.
         <ResponsiveBr minWidth="500" />
@@ -21,7 +22,7 @@ const PageAbout = props => {
       <Link to="/new" className="btn-class bigbutton">
         Create an event
       </Link>
-    </span>
+    </LayoutCentered>
   )
 }
 

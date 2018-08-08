@@ -2,6 +2,7 @@ import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
+import LayoutCentered from '~/components/LayoutCentered'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
 import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 
@@ -24,7 +25,7 @@ class PageShareEvent extends React.Component {
     setBackgroundByTimestamp(parameterToTimestamp(encodedTime))
 
     return (
-      <>
+      <LayoutCentered>
         <h1 style={{ marginTop: '0' }}>
           {this.state.isCopied ? 'Copied!' : 'Nicely done.'}
         </h1>
@@ -56,7 +57,7 @@ class PageShareEvent extends React.Component {
             </span>
           </div>
         </form>
-      </>
+      </LayoutCentered>
     )
   }
 }

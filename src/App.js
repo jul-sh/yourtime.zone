@@ -17,24 +17,17 @@ class App extends Component {
   render() {
     return (
       <Router onUpdate={this.scrollToTop}>
-        <div id="app">
-          <div id="page">
-            <ResetScrollPosition>
-              <Switch>
-                <Route exact path="/" component={PageAbout} />
-                <Route path="/new/:timezone?/" component={PageCreateEvent} />
-                <Route
-                  path="/share/:encodedTime?/:name?/"
-                  component={PageShareEvent}
-                />
-                <Route path="/e/:encodedTime?/:name?/" component={PageEvent} />
-              </Switch>
-            </ResetScrollPosition>
-          </div>
-          <div id="bottomarea">
-            <Route path="/e/:encodedTime?/:name?/" component={FooterButton} />
-          </div>
-        </div>
+        <ResetScrollPosition>
+          <Switch>
+            <Route exact path="/" component={PageAbout} />
+            <Route path="/new/:timezone?/" component={PageCreateEvent} />
+            <Route
+              path="/share/:encodedTime?/:name?/"
+              component={PageShareEvent}
+            />
+            <Route path="/e/:encodedTime?/:name?/" component={PageEvent} />
+          </Switch>
+        </ResetScrollPosition>
       </Router>
     )
   }

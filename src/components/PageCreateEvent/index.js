@@ -2,6 +2,7 @@ import React from 'react'
 import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
+import LayoutCentered from '~/components/LayoutCentered'
 import DateTimePicker from '~/components/DateTimePicker'
 import { withRouter } from 'react-router-dom'
 
@@ -36,30 +37,32 @@ class PageCreateEvent extends React.Component {
     setBackgroundByTimestamp(this.state.eventTimestamp || new Date())
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>When is the event?</h2>
-        <p>
-          In your local timezone ({this.state.userTimeZoneName}
-          ).{' '}
-        </p>
-        <DateTimePicker callbackFromParent={this.onDatePickerChange} />
-        <div style={{ marginTop: 45 }}>
-          <h2>What's the name of the event?</h2>
-          <input
-            type="text"
-            value={this.state.eventName}
-            onChange={this.onEventNameChange}
-            placeholder="Juliette's Webinar"
-          />
-        </div>
-        <div className="submitbuttondiv" style={{ marginTop: 15 }}>
-          <input
-            type="submit"
-            className="btn-class bigbutton"
-            defaultValue="Create Event"
-          />
-        </div>
-      </form>
+      <LayoutCentered>
+        <form onSubmit={this.handleSubmit}>
+          <h2>When is the event?</h2>
+          <p>
+            In your local timezone ({this.state.userTimeZoneName}
+            ).{' '}
+          </p>
+          <DateTimePicker callbackFromParent={this.onDatePickerChange} />
+          <div style={{ marginTop: 45 }}>
+            <h2>What's the name of the event?</h2>
+            <input
+              type="text"
+              value={this.state.eventName}
+              onChange={this.onEventNameChange}
+              placeholder="Juliette's Webinar"
+            />
+          </div>
+          <div className="submitbuttondiv" style={{ marginTop: 15 }}>
+            <input
+              type="submit"
+              className="btn-class bigbutton"
+              defaultValue="Create Event"
+            />
+          </div>
+        </form>
+      </LayoutCentered>
     )
   }
 }
