@@ -1,13 +1,16 @@
+import React from 'react'
+import styled from 'react-emotion'
 import differenceInCalendarDays from 'date-fns/difference_in_calendar_days'
 import format from 'date-fns/format'
 import isToday from 'date-fns/is_today'
 import isTomorrow from 'date-fns/is_tomorrow'
 import isYesterday from 'date-fns/is_yesterday'
 import isBefore from 'date-fns/is_before'
+import ResponsiveBr from 'react-responsivebr'
+import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 
-const getDateInWords = (timestamp, now) => {
+const getRelativeDate = (timestamp, now) => {
   const daysBetween = differenceInCalendarDays(timestamp, now)
-  console.log(daysBetween)
 
   if (isToday(timestamp)) return `today at ${format(timestamp, 'h:mm')}`
   if (isTomorrow(timestamp)) return `tomorrow at ${format(timestamp, 'h:mm')}`
@@ -39,15 +42,35 @@ const getPreposition = (timestamp, now) => {
   return ''
 }
 
-const timestampToWords = timestamp => {
-  const now = new Date()
+const AmPm = styled('span')`
+  text-transform: uppercase;
+  font-size: 75%;
 
-  return {
-    inWords: getDateInWords(timestamp, now),
-    amPm: format(timestamp, 'a'),
-    verb: getVerb(timestamp, now),
-    preposition: getPreposition(timestamp, now)
+  :before {
+    content: ' ';
   }
+`
+
+const TimeInWords = ({ timestamp, now }) => (
+  <>
+    {getRelativeDate(timestamp, now)}
+    <AmPm>{format(timestamp, 'a')}</AmPm>
+  </>
+)
+
+const EventInWords = ({ name = 'the event', timestamp }) => {
+  const now = new Date()
+  const userTimezone = formatTimezoneName(getUserTimezone())
+
+  return (
+    <>
+      {`In your time zone (${userTimezone})`},<ResponsiveBr maxWidth="800" />
+      {`${name} ${getVerb(timestamp, now)} ${getPreposition(timestamp, now)}`}
+      <h1 id="localtime">
+        <TimeInWords timestamp={timestamp} now={now} />
+      </h1>
+    </>
+  )
 }
 
-export default timestampToWords
+export default EventInWords
