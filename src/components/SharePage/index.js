@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
 import LayoutCentered from '~/components/LayoutCentered'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
-import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 
 class PageShareEvent extends React.Component {
   state = {

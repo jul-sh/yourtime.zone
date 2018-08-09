@@ -3,7 +3,7 @@ import ResponsiveBr from 'react-responsivebr'
 import LayoutCentered from '~/components/LayoutCentered'
 import FooterButton from '~/components/FooterButton'
 import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
-import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
+
 import { parameterToTimestamp } from '~/helpers/timeParameter'
 import timestampToWords from '~/helpers/timestampToWords'
 
@@ -14,10 +14,8 @@ const PageEvent = props => {
   const eventTime = timestampToWords(timestamp)
   const eventName = name ? `"${name}"` : 'the event'
 
-  setBackgroundByTimestamp(timestamp)
-
   return (
-    <LayoutCentered>
+    <LayoutCentered backgroundTime={timestamp}>
       In your time zone ({formatTimezoneName(userTimezone)}
       ),
       <ResponsiveBr maxWidth="800" />

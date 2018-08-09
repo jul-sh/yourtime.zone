@@ -1,5 +1,5 @@
 import React from 'react'
-import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
+
 import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
 import LayoutCentered from '~/components/LayoutCentered'
@@ -34,10 +34,8 @@ class PageCreateEvent extends React.Component {
   onEventNameChange = event => this.setState({ eventName: event.target.value })
 
   render() {
-    setBackgroundByTimestamp(this.state.eventTimestamp || new Date())
-
     return (
-      <LayoutCentered>
+      <LayoutCentered backgroundTime={this.state.eventTimestamp || new Date()}>
         <form onSubmit={this.handleSubmit}>
           <h2>When is the event?</h2>
           <p>

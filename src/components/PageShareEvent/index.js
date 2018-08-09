@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
 import LayoutCentered from '~/components/LayoutCentered'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
-import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 
 class PageShareEvent extends React.Component {
   state = {
@@ -22,10 +21,9 @@ class PageShareEvent extends React.Component {
     const { encodedTime, name } = this.props.match.params
     const path = `/e/${encodedTime}${name ? '/' + name : ''}`
     const url = window.location.origin + path
-    setBackgroundByTimestamp(parameterToTimestamp(encodedTime))
 
     return (
-      <LayoutCentered>
+      <LayoutCentered backgroundTime={parameterToTimestamp(encodedTime)}>
         <h1 style={{ marginTop: '0' }}>
           {this.state.isCopied ? 'Copied!' : 'Nicely done.'}
         </h1>

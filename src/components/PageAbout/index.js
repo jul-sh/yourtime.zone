@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
 import LayoutCentered from '~/components/LayoutCentered'
-import setBackgroundByTimestamp from '~/helpers/setBackgroundByTimestamp'
 
 const PageAbout = props => {
-  setBackgroundByTimestamp(new Date())
   return (
-    <LayoutCentered>
+    <LayoutCentered backgroundTime={new Date()}>
       <h1 className="greeting">
         Time Zones are hard.
         <ResponsiveBr minWidth="500" />
