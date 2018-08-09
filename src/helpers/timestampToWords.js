@@ -9,22 +9,21 @@ const getDateInWords = (timestamp, now) => {
   const daysBetween = differenceInCalendarDays(timestamp, now)
   console.log(daysBetween)
 
-  if (isToday(timestamp)) return `today at ${format(timestamp, 'h:mm A')}`
-  if (isTomorrow(timestamp)) return `tomorrow at ${format(timestamp, 'h:mm A')}`
-  if (isYesterday(timestamp))
-    return `yesterday at ${format(timestamp, 'h:mm A')}`
+  if (isToday(timestamp)) return `today at ${format(timestamp, 'h:mm')}`
+  if (isTomorrow(timestamp)) return `tomorrow at ${format(timestamp, 'h:mm')}`
+  if (isYesterday(timestamp)) return `yesterday at ${format(timestamp, 'h:mm')}`
   if (2 <= daysBetween && daysBetween <= 6)
-    return `${format(timestamp, 'dddd')} at ${format(timestamp, 'h:mm A')}`
+    return `${format(timestamp, 'dddd')} at ${format(timestamp, 'h:mm')}`
   if (-200 <= daysBetween && daysBetween <= 200)
     return `${format(timestamp, 'MMMM')} the ${format(
       timestamp,
       'Do'
-    )} at ${format(timestamp, 'h:mm A')}`
+    )} at ${format(timestamp, 'h:mm')}`
 
   return `${format(timestamp, 'MMMM')} the ${format(
     timestamp,
     'Do YYYY'
-  )} at ${format(timestamp, 'h:mm A')}`
+  )} at ${format(timestamp, 'h:mm')}`
 }
 
 const getVerb = (timestamp, now) =>
@@ -45,6 +44,7 @@ const timestampToWords = timestamp => {
 
   return {
     inWords: getDateInWords(timestamp, now),
+    amPm: format(timestamp, 'a'),
     verb: getVerb(timestamp, now),
     preposition: getPreposition(timestamp, now)
   }
