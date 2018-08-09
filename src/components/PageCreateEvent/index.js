@@ -35,7 +35,7 @@ class PageCreateEvent extends React.Component {
 
   render() {
     return (
-      <LayoutCentered backgroundTime={this.state.eventTimestamp || new Date()}>
+      <LayoutCentered backgroundTime={new Date()}>
         <form onSubmit={this.handleSubmit}>
           <h2>When is the event?</h2>
           <p>
