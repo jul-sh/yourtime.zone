@@ -17,7 +17,8 @@
     "react-emotion": "^9.2.6",
     "react-responsivebr": "^1.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.0-next.b2fd8db8"
+    "react-scripts": "^2.0.0-next.b2fd8db8",
+    "sherlockjs": "^1.4.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

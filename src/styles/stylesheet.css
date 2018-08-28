@@ -123,20 +123,6 @@ form select {
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-form input[type='text'] {
-  font-size: 16px;
-  padding: 10px 14px;
-  min-width: 250px;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
-  background: #f8f7f7;
-  height: auto;
-  font-family: 'customsans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  text-align: center;
-  color: #000;
-}
-
 .link {
   border-bottom: 1px solid;
   transition-delay: 0s;
@@ -285,10 +271,6 @@ form input[type='text'] {
 }
 
 @media screen and (max-width: 420px) {
-  form input[type='text'] {
-    min-width: 140px;
-  }
-
   #page {
     padding-left: 35px;
     padding-right: 35px;
@@ -343,11 +325,5 @@ form input[type='text'] {
 
   select {
     padding: 3px !important;
-  }
-
-  .shareurl {
-    width: 120px !important;
-    min-width: 120px !important;
-    max-width: 120px !important;
   }
 }
