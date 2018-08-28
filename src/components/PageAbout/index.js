@@ -1,25 +1,29 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
+import styled from 'react-emotion'
+import Button from '~/components/Button'
 import LayoutCentered from '~/components/LayoutCentered'
+
+const Description = styled('p')`
+  text-align: center;
+  margin: 0 auto;
+  max-width: 40ch;
+  margin-bottom: 30px;
+`
 
 const PageAbout = props => {
   return (
     <LayoutCentered backgroundTime={new Date()}>
-      <h1 className='greeting'>
+      <h1 className="greeting">
         Time Zones are hard.
-        <ResponsiveBr minWidth='500' />
+        <ResponsiveBr minWidth="500" />
         I'll take care of them for you.
       </h1>
-      <div className='bodytext'>
-        <span>
-          yourtime.zone translates the time of an event into the visitor's local
-          time. Great for webinars and live-streams.{' '}
-        </span>
-      </div>
-      <Link to='/new' className='btn-class bigbutton'>
-        Create an event
-      </Link>
+      <Description>
+        yourtime.zone translates the time of an event into the visitor's local
+        time. Great for webinars and live-streams.{' '}
+      </Description>
+      <Button to="/new">Create an event</Button>
     </LayoutCentered>
   )
 }

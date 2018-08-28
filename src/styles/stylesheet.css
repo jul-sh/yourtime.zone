@@ -171,12 +171,6 @@ form input[type='text'] {
   padding: 30px;
 }
 
-.bodytext {
-  text-align: left;
-  max-width: 530px;
-  margin: 0 auto;
-}
-
 #CreatorDescription {
   position: absolute;
   top: 30px;
@@ -254,29 +248,6 @@ form input[type='text'] {
   color: #000;
 }
 
-.bottomareabutton {
-  text-decoration: none;
-  font-size: 16px;
-  color: #333;
-  color: #fff;
-  padding: 6px 12px;
-  background: transparent;
-  border: 2px;
-  border-color: #ffffff;
-  border-style: dotted;
-}
-
-.bottomareabutton:hover {
-  text-decoration: none;
-  color: #444;
-  color: #fff;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.25);
-  border: 2px;
-  border-color: #ffffff;
-  border-style: dotted;
-}
-
 .brmax800px {
   content: ' ';
 }
@@ -303,24 +274,6 @@ form input[type='text'] {
 
   h2 {
     font-size: 36px;
-  }
-
-  .bottomareabutton {
-    color: #fff;
-    padding: 5px 11px;
-    background: transparent;
-    border: 2px;
-    border-color: #ffffff;
-    border-style: dotted;
-  }
-
-  .bottomareabutton:hover {
-    color: #fff;
-    padding: 5px 11px;
-    background: rgba(255, 255, 255, 0.25);
-    border: 2px;
-    border-color: #ffffff;
-    border-style: dotted;
   }
 
   .brmax800px {
@@ -382,10 +335,6 @@ form input[type='text'] {
 
   .btn-class {
     padding: 12px 35px;
-  }
-
-  .bottomareabutton {
-    padding: 8px 20px;
   }
 
   .submitbuttondiv {
