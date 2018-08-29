@@ -13,18 +13,18 @@ import PageEvent from '~/components/PageEvent'
 class App extends Component {
   scrollToTop = () => window.scrollTo(0, 0)
 
-  render () {
+  render() {
     return (
       <Router onUpdate={this.scrollToTop}>
         <ResetScrollPosition>
           <Switch>
-            <Route exact path='/' component={PageAbout} />
-            <Route path='/new/:timezone?/' component={PageCreateEvent} />
+            <Route exact path="/" component={PageAbout} />
+            <Route path="/new/:timezone?/" component={PageCreateEvent} />
             <Route
-              path='/share/:encodedTime?/:name?/'
+              path="/share/:encodedTime?/:name?/"
               component={PageShareEvent}
             />
-            <Route path='/e/:encodedTime?/:name?/' component={PageEvent} />
+            <Route path="/e/:encodedTime?/:name?/" component={PageEvent} />
           </Switch>
         </ResetScrollPosition>
       </Router>
@@ -34,13 +34,13 @@ class App extends Component {
 
 const ResetScrollPosition = withRouter(
   class extends Component {
-    componentDidUpdate (prevProps) {
+    componentDidUpdate(prevProps) {
       if (this.props.location !== prevProps.location) {
         window.scrollTo(0, 0)
       }
     }
 
-    render () {
+    render() {
       return this.props.children
     }
   }
