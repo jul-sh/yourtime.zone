@@ -2,7 +2,7 @@ import React from 'react'
 import format from 'date-fns/format'
 
 class Timepicker extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     const now = new Date()
@@ -37,15 +37,15 @@ class Timepicker extends React.Component {
     })
   }
 
-  render() {
+  render () {
     return (
-      <span className="timeselector" style={this.props.style}>
+      <span className='timeselector' style={this.props.style}>
         <span>
           <select
-            id="timepickerhour"
+            id='timepickerhour'
             value={this.state.hour}
             onChange={this.handleHourChange}
-            className="hour"
+            className='hour'
             style={{ width: 'auto' }}
           >
             <option value={1}>01</option>
@@ -62,10 +62,10 @@ class Timepicker extends React.Component {
             <option value={12}>12</option>
           </select>
           <select
-            id="timepickerminute"
+            id='timepickerminute'
             value={this.state.minute}
             onChange={this.handleMinuteChange}
-            className="minute"
+            className='minute'
             style={{ width: 'auto' }}
           >
             <option value={0}>00</option>
@@ -82,14 +82,14 @@ class Timepicker extends React.Component {
             <option value={55}>55</option>
           </select>
           <select
-            id="timepickerampm"
+            id='timepickerampm'
             value={this.state.ampm}
-            className="ampm"
+            className='ampm'
             style={{ width: 'auto' }}
             onChange={this.handleAMPMChange}
           >
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
+            <option value='AM'>AM</option>
+            <option value='PM'>PM</option>
           </select>
         </span>
       </span>

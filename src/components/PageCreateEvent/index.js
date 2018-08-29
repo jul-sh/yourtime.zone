@@ -1,10 +1,9 @@
 import React from 'react'
-
+import { withRouter } from 'react-router-dom'
 import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
 import LayoutCentered from '~/components/LayoutCentered'
 import DateTimePicker from '~/components/DateTimePicker'
-import { withRouter } from 'react-router-dom'
 
 class PageCreateEvent extends React.Component {
   state = {
@@ -44,7 +43,7 @@ class PageCreateEvent extends React.Component {
           </p>
           <DateTimePicker callbackFromParent={this.onDatePickerChange} />
           <div style={{ marginTop: 45 }}>
-            <h2>What's the name of the event?</h2>
+            <h2>{"What's the name of the event?"}</h2>
             <input
               type="text"
               value={this.state.eventName}

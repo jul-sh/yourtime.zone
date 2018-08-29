@@ -8,5 +8,6 @@ module.exports = function override(config, env) {
     config
   )
   config = rewirePreact(config, env)
+
   return config
 }

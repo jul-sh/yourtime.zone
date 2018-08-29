@@ -3,7 +3,7 @@ import ComboDatePicker from '~/helpers/combodate'
 import Timepicker from '~/helpers/timepicker'
 
 class DateTimePicker extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       dateTime: new Date()
@@ -25,12 +25,15 @@ class DateTimePicker extends React.Component {
   callbackTimepickeer = encodedTime => {
     var hourpicked = parseInt(encodedTime.hour, 10)
     const minutepicked = parseInt(encodedTime.minute, 10)
+
     if (encodedTime.ampm === 'PM') {
       hourpicked = hourpicked + 12
     }
+
     if (hourpicked === 24) {
       hourpicked = 0
     }
+
     var dateTime = this.state.dateTime
     dateTime.setMilliseconds(0)
     dateTime.setSeconds(0)
@@ -40,7 +43,7 @@ class DateTimePicker extends React.Component {
     this.setState({ dateTime: dateTime })
   }
 
-  render() {
+  render () {
     const timepickerstyles = {
       margin: '0 0 0 20px'
     }
@@ -48,8 +51,8 @@ class DateTimePicker extends React.Component {
     return (
       <div>
         <ComboDatePicker
-          minDate="2017-06-01"
-          maxDate="2030-12-31"
+          minDate='2017-06-01'
+          maxDate='2030-12-31'
           date={this.state.dateTime}
           onChange={(picker, date) => {
             this.callbackDatepickeer(date)

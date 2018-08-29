@@ -15,13 +15,17 @@ const getRelativeDate = (timestamp, now) => {
   if (isToday(timestamp)) return `today at ${format(timestamp, 'h:mm')}`
   if (isTomorrow(timestamp)) return `tomorrow at ${format(timestamp, 'h:mm')}`
   if (isYesterday(timestamp)) return `yesterday at ${format(timestamp, 'h:mm')}`
-  if (2 <= daysBetween && daysBetween <= 6)
+
+  if (daysBetween >= 2 && daysBetween <= 6) {
     return `${format(timestamp, 'dddd')} at ${format(timestamp, 'h:mm')}`
-  if (-200 <= daysBetween && daysBetween <= 200)
+  }
+
+  if (daysBetween >= -200 && daysBetween <= 200) {
     return `${format(timestamp, 'MMMM')} the ${format(
       timestamp,
       'Do'
     )} at ${format(timestamp, 'h:mm')}`
+  }
 
   return `${format(timestamp, 'MMMM')} the ${format(
     timestamp,
