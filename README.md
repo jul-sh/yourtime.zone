@@ -1,4 +1,3 @@
-Automatically built & deployed through netlify
+_yourtime.zone_ translates the time of an event into the visitor's local time. Relatively Lightweight, total load size at around ~80kb.
 
-
-[![Build Status](https://travis-ci.org/laurajuliette/yourtime.zone.svg?branch=master)](https://travis-ci.org/laurajuliette/yourtime.zone)
+Built using [React](https://reactjs.org) & [emotion](https://emotion.sh/).
