@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import differenceInCalendarDays from 'date-fns/difference_in_calendar_days'
 import format from 'date-fns/format'
 import isToday from 'date-fns/is_today'
@@ -68,9 +68,9 @@ const EventInWords = ({ name = 'the event', timestamp }) => {
 
   return (
     <>
-      {`In your time zone (${userTimezone})`},<ResponsiveBr maxWidth="800" />
+      {`In your time zone (${userTimezone})`},<ResponsiveBr minWidth="800" />
       {`${name} ${getVerb(timestamp, now)} ${getPreposition(timestamp, now)}`}
-      <h1 id="localtime">
+      <h1>
         <TimeInWords timestamp={timestamp} now={now} />
       </h1>
     </>

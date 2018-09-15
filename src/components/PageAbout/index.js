@@ -1,6 +1,6 @@
 import React from 'react'
 import ResponsiveBr from 'react-responsivebr'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import Button from '~/components/Button'
 import LayoutCentered from '~/components/LayoutCentered'
 
@@ -15,9 +15,9 @@ const PageAbout = props => {
   return (
     <LayoutCentered backgroundTime={new Date()}>
       <h1 className="greeting">
-        Time Zones are hard.
+        Time zones are hard.
         <ResponsiveBr minWidth="500" />
-        I'll take care of them for you.
+        I'll take care of them.
       </h1>
       <Description>
         yourtime.zone translates the time of an event into the visitor's local

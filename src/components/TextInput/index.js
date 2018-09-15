@@ -1,6 +1,12 @@
 import React from 'react'
-import styled from 'react-emotion'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import uuid from 'uuid-random'
 import { BREAKPOINTS } from '~/styles'
+
+const Wrapper = styled('div')`
+  margin-bottom: ${props => props.marginBotton || '10px'};
+`
 
 const StyledInput = styled('input')`
   font-family: 'customsans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -15,7 +21,7 @@ const StyledInput = styled('input')`
   background: #f8f7f7;
   color: #000;
   min-width: 250px;
-  margin-bottom: 10px;
+  margin-bottom: ${props => (props.error ? '15px' : 0)};
   text-align: center;
 
   ${BREAKPOINTS.SMALL} {
@@ -23,6 +29,32 @@ const StyledInput = styled('input')`
   }
 `
 
-const TextInput = props => <StyledInput {...props} type="text" />
+const Error = styled('div')`
+  color: rgb(255, 210, 220);
+`
+
+const TextInput = props => (
+  <Wrapper marginBottom={props.marginBottom}>
+    <StyledInput
+      {...props}
+      hasErrors={!!props.error}
+      aria-invalid={!!props.error}
+      aria-describedby={`${props.id}-error`}
+      type="text"
+    />
+    <Error id={`${props.id}-error`}>
+      <span aria-hidden>{!!props.error && '☝️ '}</span>
+      {props.error}
+    </Error>
+  </Wrapper>
+)
+
+TextInput.defaultProps = {
+  id: uuid()
+}
+
+TextInput.propTypes = {
+  id: PropTypes.string
+}
 
 export default TextInput
