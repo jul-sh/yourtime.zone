@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import parse from 'date-fns/parse'
 import { HOUR_COLOR_COMBINATION } from '~/styles'
 

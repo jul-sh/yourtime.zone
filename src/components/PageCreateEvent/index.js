@@ -5,6 +5,7 @@ import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
 import LayoutCentered from '~/components/LayoutCentered'
 import TextInput from '~/components/TextInput'
+import Button from '~/components/Button'
 
 class PageCreateEvent extends React.Component {
   state = {
@@ -32,7 +33,7 @@ class PageCreateEvent extends React.Component {
       })
     } else {
       this.setState({
-        eventTimeError: '☝️ Please double check the format'
+        eventTimeError: 'Please double check the format'
       })
     }
   }
@@ -50,7 +51,7 @@ class PageCreateEvent extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <h2>When is the event?</h2>
           <p>
-            In your local timezone ({this.state.userTimeZoneName}
+            In your local time zone ({this.state.userTimeZoneName}
             ).
           </p>
           <TextInput
@@ -59,26 +60,21 @@ class PageCreateEvent extends React.Component {
             value={this.state.eventTime}
             onChange={this.handleTimeChange}
             placeholder="e.g. Wednesday at 7pm"
-            aria-invalid={!!this.state.eventTimeError}
-            aria-describedby="eventTimeError"
+            error={this.state.eventTimeError}
+            marginBottom="30px"
           />
-          <div id="eventTimeError">{this.state.eventTimeError}</div>
-          <div style={{ marginTop: 45 }}>
-            <h2>{"What's the name of the event?"}</h2>
-            <TextInput
-              name="eventName"
-              value={this.state.eventName}
-              onChange={this.handleNameChange}
-              placeholder="e.g. Juliette's Webinar"
-            />
-          </div>
-          <div className="submitbuttondiv" style={{ marginTop: 15 }}>
-            <input
-              type="submit"
-              className="btn-class bigbutton"
-              defaultValue="Create Event"
-            />
-          </div>
+          <h2>{"What's the name of the event?"}</h2>
+          <TextInput
+            name="eventName"
+            value={this.state.eventName}
+            onChange={this.handleNameChange}
+            placeholder="e.g. Juliette's Webinar"
+            marginBottom="40px"
+          />
+          <br />
+          <Button as="button" type="submit">
+            Create Event
+          </Button>
         </form>
       </LayoutCentered>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import LayoutCentered from '~/components/LayoutCentered'
 import EventInWords from '~/components/EventInWords'
 import DottedButton from '~/components/DottedButton'

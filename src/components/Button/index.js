@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import { BREAKPOINTS } from '~/styles'
 
 export default styled(Link)`
@@ -14,9 +14,10 @@ export default styled(Link)`
   transition: all 0.5s;
   text-decoration: none;
   will-change: box-shadow;
+  cursor: pointer;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 0 0.175em hsla(0, 0%, 100%, 0.4);
   }
 
   ${BREAKPOINTS.TINY} {

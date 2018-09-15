@@ -3,22 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-plugin-emotion": "^9.2.6",
-    "babel-plugin-import": "^1.8.0",
     "date-fns": "^1.29.0",
-    "emotion": "^9.2.6",
     "jstz": "^2.0.0",
-    "preact": "^8.3.0",
-    "preact-compat": "^3.18.2",
-    "react": "^16.4.2",
-    "react-app-rewire-preact": "^1.0.1",
+    "react": "^16.5.0",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.4.2",
-    "react-emotion": "^9.2.6",
+    "react-dom": "^16.5.0",
     "react-responsivebr": "^1.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.0-next.b2fd8db8",
-    "sherlockjs": "^1.4.0"
+    "react-scripts": "next",
+    "sherlockjs": "^1.4.0",
+    "styled-components": "beta",
+    "uuid-random": "^1.0.6"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -42,23 +37,25 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-import": "^1.8.0",
     "babel-plugin-root-import": "^6.1.0",
+    "babel-plugin-styled-components": "^1.6.4",
     "eslint-config-prettier": "^3.0.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
     "prettier": "1.14.2",
-    "react-app-rewire-emotion": "^4.0.0",
+    "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "next"
   },
   "browserslist": {
@@ -68,9 +65,8 @@
       "last 2 edge versions"
     ],
     "production": [
-      ">0.25%",
-      "not op_mini all",
-      "ie 11"
+      "> 1%",
+      "not op_mini all"
     ]
   }
 }
