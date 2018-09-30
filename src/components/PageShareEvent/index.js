@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
 import LayoutCentered from '~/components/LayoutCentered'
 import TextInput from '~/components/TextInput'
+import Button from '~/components/Button'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
 
 class PageShareEvent extends React.Component {
@@ -25,31 +26,19 @@ class PageShareEvent extends React.Component {
 
     return (
       <LayoutCentered backgroundTime={parameterToTimestamp(encodedTime)}>
-        <h1 style={{ marginTop: '0' }}>
-          {this.state.isCopied ? 'Copied!' : 'Nicely done.'}
-        </h1>
+        <h1>{this.state.isCopied ? 'Copied!' : 'Nicely done.'}</h1>
         <p>
           Now, simply share the link below.
           <ResponsiveBr minWidth="500" />
           It will display <Link to={path}>the event</Link> in the local time of
           whoever visits it.
         </p>
-        <form>
-          <div className="input-group">
-            <TextInput onClick={this.handleInputClick} value={url} readOnly />
-            <span className="input-group-btn">
-              <CopyToClipboard text={url} onCopy={this.onCopy}>
-                <button
-                  className="btn btn-default copy-button"
-                  type="button"
-                  data-clipboard-target="#copy-input"
-                >
-                  Copy
-                </button>
-              </CopyToClipboard>
-            </span>
-          </div>
-        </form>
+        <TextInput onClick={this.handleInputClick} value={url} readOnly />
+        <CopyToClipboard text={url} onCopy={this.onCopy}>
+          <Button as="button" data-clipboard-target="#copy-input">
+            Copy
+          </Button>
+        </CopyToClipboard>
       </LayoutCentered>
     )
   }

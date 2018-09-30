@@ -14,7 +14,7 @@ const Description = styled('p')`
 const PageAbout = props => {
   return (
     <LayoutCentered backgroundTime={new Date()}>
-      <h1 className="greeting">
+      <h1>
         Time zones are hard.
         <ResponsiveBr minWidth="500" />
         I'll take care of them.
