@@ -6,11 +6,6 @@ body {
   padding: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 #app {
   display: flex;
   flex-grow: 1;
@@ -20,6 +15,8 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background: #000;
@@ -30,6 +27,12 @@ body {
   padding: 0;
   position: absolute;
   line-height: 120%;
+}
+
+body * {
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 #background {

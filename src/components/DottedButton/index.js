@@ -21,6 +21,12 @@ export default styled(Link)`
     border: 2px dotted #ffffff;
   }
 
+  &:focus {
+    box-shadow: 0 0 0 0.14em hsla(230, 100%, 70%, 1),
+      0 0 0 0.175em hsla(230, 100%, 75%, 1);
+    outline: 0;
+  }
+
   ${BREAKPOINTS.MEDIUM} {
     padding: 5px 11px;
   }

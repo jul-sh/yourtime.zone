@@ -27,6 +27,16 @@ const StyledInput = styled('input')`
   ${BREAKPOINTS.SMALL} {
     min-width: 140px;
   }
+
+  &:hover {
+    box-shadow: 0 0 0 0.2em hsla(0, 0%, 100%, 0.3);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.14em hsla(230, 100%, 70%, 1),
+      0 0 0 0.175em hsla(230, 100%, 75%, 1);
+    outline: 0;
+  }
 `
 
 const Error = styled('div')`
