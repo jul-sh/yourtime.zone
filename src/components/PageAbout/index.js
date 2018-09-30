@@ -2,7 +2,7 @@ import React from 'react'
 import ResponsiveBr from 'react-responsivebr'
 import styled from 'styled-components'
 import Button from '~/components/Button'
-import LayoutCentered from '~/components/LayoutCentered'
+import LayoutGradient from '~/components/LayoutGradient'
 
 const Description = styled('p')`
   text-align: center;
@@ -13,7 +13,7 @@ const Description = styled('p')`
 
 const PageAbout = props => {
   return (
-    <LayoutCentered backgroundTime={new Date()}>
+    <LayoutGradient backgroundTime={new Date()}>
       <h1>
         Time zones are hard.
         <ResponsiveBr minWidth="500" />
@@ -24,7 +24,7 @@ const PageAbout = props => {
         time. Great for webinars and live-streams.{' '}
       </Description>
       <Button to="/new">Create an event</Button>
-    </LayoutCentered>
+    </LayoutGradient>
   )
 }
 

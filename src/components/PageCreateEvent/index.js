@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { parse as sherlock } from 'sherlockjs'
 import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
-import LayoutCentered from '~/components/LayoutCentered'
+import LayoutGradient from '~/components/LayoutGradient'
 import TextInput from '~/components/TextInput'
 import Button from '~/components/Button'
 
@@ -47,7 +47,7 @@ class PageCreateEvent extends React.Component {
 
   render() {
     return (
-      <LayoutCentered backgroundTime={new Date()}>
+      <LayoutGradient backgroundTime={new Date()}>
         <form onSubmit={this.handleSubmit}>
           <h2>When is the event?</h2>
           <p>
@@ -76,7 +76,7 @@ class PageCreateEvent extends React.Component {
             Create Event
           </Button>
         </form>
-      </LayoutCentered>
+      </LayoutGradient>
     )
   }
 }

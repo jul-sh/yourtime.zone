@@ -16,7 +16,6 @@ const getGradientByTime = time => {
 const CenterChildren = styled('div')`
   display: flex;
   flex-grow: 1;
-  min-width: 100%;
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
@@ -31,10 +30,13 @@ const ContentWrapper = styled('div')`
   padding: 30px;
 `
 
-const LayoutCentered = props => (
-  <CenterChildren backgroundTime={props.backgroundTime}>
+const LayoutGradient = props => (
+  <CenterChildren
+    className={props.className}
+    backgroundTime={props.backgroundTime}
+  >
     <ContentWrapper>{props.children}</ContentWrapper>
   </CenterChildren>
 )
 
-export default LayoutCentered
+export default LayoutGradient
