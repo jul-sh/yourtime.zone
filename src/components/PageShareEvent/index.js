@@ -2,7 +2,7 @@ import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Link } from 'react-router-dom'
 import ResponsiveBr from 'react-responsivebr'
-import LayoutCentered from '~/components/LayoutCentered'
+import LayoutGradient from '~/components/LayoutGradient'
 import TextInput from '~/components/TextInput'
 import Button from '~/components/Button'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
@@ -25,7 +25,7 @@ class PageShareEvent extends React.Component {
     const url = window.location.origin + path
 
     return (
-      <LayoutCentered backgroundTime={parameterToTimestamp(encodedTime)}>
+      <LayoutGradient backgroundTime={parameterToTimestamp(encodedTime)}>
         <h1>{this.state.isCopied ? 'Copied!' : 'Nicely done.'}</h1>
         <p>
           Now, simply share the link below.
@@ -39,7 +39,7 @@ class PageShareEvent extends React.Component {
             Copy
           </Button>
         </CopyToClipboard>
-      </LayoutCentered>
+      </LayoutGradient>
     )
   }
 }

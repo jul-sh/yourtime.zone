@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LayoutCentered from '~/components/LayoutCentered'
+import LayoutGradient from '~/components/LayoutGradient'
 import EventInWords from '~/components/EventInWords'
 import DottedButton from '~/components/DottedButton'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
@@ -17,10 +17,10 @@ const PageEvent = props => {
   const timestamp = parameterToTimestamp(encodedTime)
 
   return (
-    <LayoutCentered backgroundTime={timestamp}>
+    <LayoutGradient backgroundTime={timestamp}>
       <EventInWords timestamp={timestamp} name={name} />
       <StyledDottedButton to="/">About yourtime.zone</StyledDottedButton>
-    </LayoutCentered>
+    </LayoutGradient>
   )
 }
 
