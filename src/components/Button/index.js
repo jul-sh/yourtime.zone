@@ -11,13 +11,18 @@ export default styled(Link)`
   border-radius: 5px 5px 5px 5px;
   font-size: 18px;
   padding: 14px 42px;
-  transition: all 0.5s;
   text-decoration: none;
   will-change: box-shadow;
   cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 0 0.175em hsla(0, 0%, 100%, 0.4);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.14em hsla(230, 100%, 70%, 1),
+      0 0 0 0.175em hsla(230, 100%, 75%, 1);
+    outline: 0;
   }
 
   ${BREAKPOINTS.TINY} {
