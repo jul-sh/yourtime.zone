@@ -8,7 +8,7 @@ const getGradientByTime = time => {
 
   return `linear-gradient(
     to bottom,
-    ${HOUR_COLOR_COMBINATION[hour][0]} 0%,
+    ${HOUR_COLOR_COMBINATION[hour][0]} 40%,
     ${HOUR_COLOR_COMBINATION[hour][1]} 100%
   )`
 }
