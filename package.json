@@ -10,9 +10,9 @@
     "react-dom": "^16.5.2",
     "react-responsivebr": "^1.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "next",
+    "react-scripts": "2.0.4",
     "sherlockjs": "^1.4.0",
-    "styled-components": "beta",
+    "styled-components": "4.0.0",
     "uuid-random": "^1.0.6"
   },
   "scripts": {
@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^9.0.0",
     "babel-plugin-import": "^1.9.1",
     "babel-plugin-root-import": "^6.1.0",
     "babel-plugin-styled-components": "^1.8.0",
@@ -46,13 +46,13 @@
     "eslint-config-standard-react": "^7.0.2",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
-    "husky": "^1.1.0",
+    "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "prettier": "1.14.3",
     "react-app-rewire-styled-components": "^3.0.2",
