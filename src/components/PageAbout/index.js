@@ -13,7 +13,7 @@ const Description = styled('p')`
 
 const PageAbout = props => {
   return (
-    <LayoutGradient backgroundTime={new Date()}>
+    <LayoutGradient backgroundTime={Date.now()}>
       <h1>
         Time zones are hard.
         <ResponsiveBr minWidth="500" />
