@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "date-fns": "^1.29.0",
+    "human-timezones": "^1.5.0",
     "jstz": "^2.0.0",
     "react": "^16.5.2",
     "react-copy-to-clipboard": "^5.0.1",
