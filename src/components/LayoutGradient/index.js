@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import parse from 'date-fns/parse'
+import { DateTime } from 'luxon'
 import { HOUR_COLOR_COMBINATION } from '~/styles'
 
-const getGradientByTime = time => {
-  const hour = parse(time).getHours()
+const getGradientByTime = timestamp => {
+  const hour = DateTime.fromMillis(timestamp).hour
 
   return `linear-gradient(
     to bottom,

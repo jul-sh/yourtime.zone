@@ -1,7 +1,7 @@
-import jstz from 'jstz'
 import TIMEZONES from 'human-timezones'
 
-export const getUserTimezone = () => jstz.determine().name()
+export const getUserTimezone = () =>
+  Intl.DateTimeFormat().resolvedOptions().timeZone
 
 export const formatTimezoneName = timezoneKey => {
   try {
