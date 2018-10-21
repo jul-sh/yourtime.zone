@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { parse as sherlock } from 'sherlockjs'
+import { DateTime } from 'luxon'
 import { formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
 import LayoutGradient from '~/components/LayoutGradient'
@@ -9,18 +10,9 @@ import Button from '~/components/Button'
 
 class PageCreateEvent extends React.Component {
   state = {
-    userTimeZoneName: 'New York',
     eventTime: '',
     eventTimeError: '',
     eventName: ''
-  }
-
-  componentDidMount() {
-    this.setState({
-      userTimeZoneName: formatTimezoneName(
-        Intl.DateTimeFormat().resolvedOptions().timeZone
-      )
-    })
   }
 
   handleSubmit = event => {
@@ -28,12 +20,13 @@ class PageCreateEvent extends React.Component {
 
     const { eventTime, eventName } = this.state
     const { startDate } = sherlock(eventTime)
+    const eventTimestamp = DateTime.fromJSDate(startDate, {
+      zone: this.props.timezone
+    }).toMillis()
 
     if (startDate) {
       this.props.history.push({
-        pathname: `/share/${timestampToParameter(
-          startDate.valueOf()
-        )}/${eventName}`
+        pathname: `/share/${timestampToParameter(eventTimestamp)}/${eventName}`
       })
     } else {
       this.setState({
@@ -50,12 +43,14 @@ class PageCreateEvent extends React.Component {
     this.setState({ eventName: value })
 
   render() {
+    const timezone = formatTimezoneName(this.props.timezone)
+
     return (
       <LayoutGradient backgroundTime={Date.now()}>
         <form onSubmit={this.handleSubmit}>
           <h2>When is the event?</h2>
           <p>
-            In your local time zone ({this.state.userTimeZoneName}
+            In your local time zone ({timezone}
             ).
           </p>
           <TextInput

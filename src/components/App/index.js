@@ -5,6 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+import TimezoneState from '~/components/TimezoneState'
 import PageAbout from '~/components/PageAbout'
 import PageCreateEvent from '~/components/PageCreateEvent'
 import PageShareEvent from '~/components/PageShareEvent'
@@ -18,13 +19,37 @@ class App extends Component {
       <Router onUpdate={this.scrollToTop}>
         <ResetScrollPosition>
           <Switch>
-            <Route exact path="/" component={PageAbout} />
-            <Route path="/new/:timezone?/" component={PageCreateEvent} />
-            <Route
-              path="/share/:encodedTime?/:name?/"
-              component={PageShareEvent}
-            />
-            <Route path="/e/:encodedTime?/:name?/" component={PageEvent} />
+            <TimezoneState>
+              {timezoneState => (
+                <>
+                  <Route
+                    exact
+                    path="/"
+                    render={props => (
+                      <PageAbout {...props} {...timezoneState} />
+                    )}
+                  />
+                  <Route
+                    path="/new/:timezone?/"
+                    render={props => (
+                      <PageCreateEvent {...props} {...timezoneState} />
+                    )}
+                  />
+                  <Route
+                    path="/share/:encodedTime?/:name?/"
+                    render={props => (
+                      <PageShareEvent {...props} {...timezoneState} />
+                    )}
+                  />
+                  <Route
+                    path="/e/:encodedTime?/:name?/"
+                    render={props => (
+                      <PageEvent {...props} {...timezoneState} />
+                    )}
+                  />
+                </>
+              )}
+            </TimezoneState>
           </Switch>
         </ResetScrollPosition>
       </Router>
