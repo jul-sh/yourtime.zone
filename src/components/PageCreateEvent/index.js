@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { parse as sherlock } from 'sherlockjs'
-import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
+import { formatTimezoneName } from '~/helpers/getUserTimezone'
 import { timestampToParameter } from '~/helpers/timeParameter'
 import LayoutGradient from '~/components/LayoutGradient'
 import TextInput from '~/components/TextInput'
@@ -16,7 +16,11 @@ class PageCreateEvent extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ userTimeZoneName: formatTimezoneName(getUserTimezone()) })
+    this.setState({
+      userTimeZoneName: formatTimezoneName(
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+      )
+    })
   }
 
   handleSubmit = event => {
