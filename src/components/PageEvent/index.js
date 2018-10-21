@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import LayoutGradient from '~/components/LayoutGradient'
 import DisplayLocalTime from '~/components/DisplayLocalTime'
 import DottedButton from '~/components/DottedButton'
-import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
+import { formatTimezoneName } from '~/helpers/getUserTimezone'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
 import { getLocalisedInformation } from '~/helpers/getLocalisedInformation'
 
@@ -18,7 +18,7 @@ const PageEvent = props => {
   const { name, encodedTime } = props.match.params
   const timestamp = parameterToTimestamp(encodedTime)
   const localTime = {
-    name: formatTimezoneName(getUserTimezone()),
+    name: formatTimezoneName(Intl.DateTimeFormat().resolvedOptions().timeZone),
     ...getLocalisedInformation(timestamp)
   }
 
