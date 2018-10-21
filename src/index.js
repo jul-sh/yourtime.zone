@@ -4,5 +4,5 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import './styles/stylesheet.css'
 
-ReactDOM.render(<App />, document.body)
+ReactDOM.render(<App />, document.querySelector('#root'))
 registerServiceWorker()
