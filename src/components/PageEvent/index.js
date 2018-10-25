@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import LayoutGradient from '~/components/LayoutGradient'
-import EventInWords from '~/components/EventInWords'
+import DisplayLocalTime from '~/components/DisplayLocalTime'
 import DottedButton from '~/components/DottedButton'
+import { getUserTimezone, formatTimezoneName } from '~/helpers/getUserTimezone'
 import { parameterToTimestamp } from '~/helpers/timeParameter'
+import { getLocalisedInformation } from '~/helpers/getLocalisedInformation'
 
 const StyledDottedButton = styled(DottedButton)`
   position: absolute;
@@ -15,10 +17,14 @@ const StyledDottedButton = styled(DottedButton)`
 const PageEvent = props => {
   const { name, encodedTime } = props.match.params
   const timestamp = parameterToTimestamp(encodedTime)
+  const localTime = {
+    name: formatTimezoneName(getUserTimezone()),
+    ...getLocalisedInformation(timestamp)
+  }
 
   return (
     <LayoutGradient backgroundTime={timestamp}>
-      <EventInWords timestamp={timestamp} name={name} />
+      <DisplayLocalTime localTime={localTime} name={name} />
       <StyledDottedButton to="/">About yourtime.zone</StyledDottedButton>
     </LayoutGradient>
   )
