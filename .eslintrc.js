@@ -7,7 +7,7 @@ module.exports = {
     'prettier/react',
     'prettier/standard'
   ],
-  plugins: ['jsx-a11y'],
+  plugins: ['jsx-a11y', 'fp'],
   rules: {
     // Blank lines before or after certain statements.
     // Ref: https://eslint.org/docs/rules/padding-line-between-statements
@@ -53,6 +53,23 @@ module.exports = {
     // This rule makes sure `aria-*` attributes are valid. Unfortunately it
     // reports a false-positive for `aria-describedby`.
     // Ref: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
-    'jsx-a11y/aria-proptypes': 0
+    'jsx-a11y/aria-proptypes': 0,
+    'fp/no-arguments': 'error',
+    'fp/no-delete': 'error',
+    'fp/no-get-set': 'error',
+    'fp/no-let': 'error',
+    'fp/no-loops': 'error',
+    'fp/no-mutating-assign': 'error',
+    'fp/no-mutating-methods': 'error',
+    'fp/no-mutation': [
+      'error',
+      {
+        exceptions: [{ property: 'defaultProps' }, { property: 'propTypes' }]
+      }
+    ],
+    'fp/no-proxy': 'error',
+    'fp/no-rest-parameters': 'error',
+    'fp/no-valueof-field': 'error',
+    'no-var': 'error'
   }
 }

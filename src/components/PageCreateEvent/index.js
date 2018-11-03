@@ -22,6 +22,8 @@ const PageCreateEvent = props => {
     }).toMillis()
 
     if (startDate) {
+      // react-router only exposes an imperative API.
+      // eslint-disable-next-line fp/no-mutating-methods
       props.history.push({
         pathname: `/share/${timestampToParameter(eventTimestamp)}/${eventName}`
       })
