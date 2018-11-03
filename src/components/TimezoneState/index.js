@@ -1,20 +1,14 @@
-import React from 'react'
+import { useState } from 'react'
 
-class TimezoneState extends React.Component {
-  constructor(props) {
-    super(props)
+const TimezoneState = props => {
+  const [timezone, setTimezone] = useState(
+    Intl.DateTimeFormat().resolvedOptions().timeZone
+  )
 
-    this.state = { timezone: Intl.DateTimeFormat().resolvedOptions().timeZone }
-  }
-
-  setTimezone = timezone => this.setState({ timezone })
-
-  render() {
-    return this.props.children({
-      timezone: this.state.timezone,
-      setTimezone: this.setTimezone
-    })
-  }
+  return props.children({
+    timezone,
+    setTimezone
+  })
 }
 
 export default TimezoneState
