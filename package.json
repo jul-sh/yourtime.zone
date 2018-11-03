@@ -13,7 +13,7 @@
     "react-router-dom": "4.3.1",
     "react-scripts": "2.0.6-next.c662dfb0",
     "sherlockjs": "1.4.0",
-    "styled-components": "4.0.0",
+    "styled-components": "4.0.3",
     "uuid-random": "1.0.6"
   },
   "scripts": {

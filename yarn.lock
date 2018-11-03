@@ -7271,9 +7271,9 @@ react-error-overlay@5.0.6-next.c662dfb0:
   version "5.0.6-next.c662dfb0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.0.6-next.c662dfb0.tgz#084583fcd6344767609f046a7e0de585edc51678"
 
-react-is@^16.3.1:
-  version "16.5.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
+react-is@^16.6.0:
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
 
 react-responsivebr@1.0.0:
   version "1.0.0"
@@ -8296,18 +8296,19 @@ style-loader@0.23.0:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
-styled-components@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.0.0.tgz#bd37d79408246302051cd63f52a3539f70aa3197"
+styled-components@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.0.3.tgz#6c1a95a93857aa613fdfc26ad40899217100d8c3"
   dependencies:
     "@emotion/is-prop-valid" "^0.6.8"
     babel-plugin-styled-components ">= 1"
     css-to-react-native "^2.2.2"
     memoize-one "^4.0.0"
     prop-types "^15.5.4"
-    react-is "^16.3.1"
+    react-is "^16.6.0"
     stylis "^3.5.0"
     stylis-rule-sheet "^0.0.10"
+    supports-color "^5.5.0"
 
 stylehacks@^4.0.0:
   version "4.0.1"
