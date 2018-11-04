@@ -55,7 +55,7 @@
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-standard": "4.0.0",
     "husky": "1.1.2",
-    "lint-staged": "7.3.0",
+    "lint-staged": "8.0.4",
     "prettier": "1.14.3",
     "react-app-rewire-styled-components": "3.0.2",
     "react-app-rewired": "next"
