@@ -1,3 +1,3 @@
-_yourtime.zone_ translates the time of an event into the visitor's local time. Relatively Lightweight, total load size at around ~80kb.
+_yourtime.zone_ translates the time of an event into the visitor's local time.
 
-Built using [React](https://reactjs.org) & [emotion](https://emotion.sh/).
+Using React, Luxon & TypeScript.
