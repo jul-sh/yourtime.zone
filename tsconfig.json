@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": ["dom", "es7"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -9,6 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
