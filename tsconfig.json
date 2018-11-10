@@ -20,5 +20,6 @@
       "~/*": ["*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "files": [""]
 }

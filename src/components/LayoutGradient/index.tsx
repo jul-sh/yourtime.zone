@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DateTime } from 'luxon'
 import { HOUR_COLOR_COMBINATION } from '~/styles'
 
-const getGradientByTime = timestamp => {
+const getGradientByTime = (timestamp: number) => {
   const hour = DateTime.fromMillis(timestamp).hour
 
   return `linear-gradient(

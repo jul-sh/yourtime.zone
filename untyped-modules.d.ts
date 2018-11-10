@@ -1,0 +1,5 @@
+declare module 'react-responsivebr'
+declare module 'ordinal'
+declare module 'human-timezones'
+declare module 'sherlockjs'
+declare module 'react-copy-to-clipboard'

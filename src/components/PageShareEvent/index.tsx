@@ -30,7 +30,7 @@ const PageShareEvent = props => {
         value={url}
         readOnly
       />
-      <CopyToClipboard text={url} onCopy={() => setIsCopied('true')}>
+      <CopyToClipboard text={url} onCopy={() => setIsCopied(true)}>
         <Button as="button" data-clipboard-target="#copy-input">
           Copy
         </Button>
