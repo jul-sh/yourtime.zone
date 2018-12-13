@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import parse from 'date-fns/parse'
-import { HOUR_COLOR_COMBINATION } from '~/constants/styles'
+import { HOUR_COLOR_COMBINATION } from '~/styles'
 
 const getGradientByTime = time => {
   const hour = parse(time).getHours()
